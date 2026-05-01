@@ -1,23 +1,20 @@
 # Trainova
 
-Trainova — premium educational SaaS prototype: "превратите тесты в умные тренажёры".
+Trainova turns old test files into modern interactive trainers.
+
+Tagline: "превратите тесты в умные тренажёры".
 
 ## What Works
 
-- Landing page in a cleaner Brilliant + Linear + Typeform direction.
+- Premium educational SaaS landing page.
 - Upload flow for `.qst`, `.txt`, and `.zip`.
 - Safe ZIP discovery that ignores executable files and never runs them.
-- QST parser with UTF-8 then Windows-1251 decoding fallback.
-- Parse summary with progressive disclosure for validation details.
-- Lightweight editor for question text, answers, correct answer, flags, favorites, and difficult questions.
-- Simplified quick settings with advanced settings hidden behind disclosure.
-- Training, exam, quick test, mistakes, and review mode foundations.
-- One-question test-taking flow with immediate feedback.
-- Supabase Auth pages for Google, Apple, email magic link, and optional password flow.
+- QST parser with UTF-8 first and Windows-1251 fallback.
+- Parse summary, lightweight editor, quick settings, test runner, results, dashboard, account, and progress pages.
+- Google and email auth through Supabase Auth.
 - Protected account routes through Next.js 16 `proxy.ts`.
-- Real Supabase persistence endpoints for tests, questions, answers, settings, attempts, attempt answers, progress, and wrong questions.
-- Favorite questions are modeled separately in Supabase for real user progress.
-- localStorage fallback for guests, with a prompt to save local tests after login.
+- Real Supabase persistence endpoints for tests, questions, answers, settings, attempts, attempt answers, progress, wrong questions, and favorite questions.
+- localStorage fallback for guests.
 
 ## Routes
 
@@ -38,29 +35,26 @@ Trainova — premium educational SaaS prototype: "превратите тест�
 
 ## Environment
 
-Create `.env.local` when Supabase is available:
+Create `.env.local` locally:
 
 ```bash
 NEXT_PUBLIC_SUPABASE_URL=
 NEXT_PUBLIC_SUPABASE_ANON_KEY=
-SUPABASE_SERVICE_ROLE_KEY=
 NEXT_PUBLIC_SITE_URL=http://localhost:3000
 ```
-
-`SUPABASE_SERVICE_ROLE_KEY` is server-only. Never expose it with a `NEXT_PUBLIC_` prefix.
 
 Supabase redirect URLs:
 
 - `http://localhost:3000/auth/callback`
-- `https://MY-VERCEL-DOMAIN.vercel.app/auth/callback`
+- `https://trainova.vercel.app/auth/callback`
 - future custom domain with `/auth/callback`
 
 For Google OAuth, create a Google OAuth Client and add the redirect URI shown in the Supabase Google provider settings.
-For Apple OAuth, configure Sign in with Apple, Services ID, Return URL, and rotate the Apple client secret every 6 months.
 
 ## Commands
 
 ```bash
+npm install
 npm run dev
 npm run lint
 npm run build
