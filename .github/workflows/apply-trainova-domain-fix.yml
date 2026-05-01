@@ -1,0 +1,193 @@
+name: Apply Trainova domain auth fix
+
+on:
+  push:
+    branches:
+      - feature/full-trainova-project
+    paths:
+      - .github/workflows/apply-trainova-domain-fix.yml
+
+permissions:
+  contents: write
+
+jobs:
+  apply-fix:
+    runs-on: ubuntu-latest
+    if: github.actor != 'github-actions[bot]'
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+        with:
+          ref: feature/full-trainova-project
+          fetch-depth: 0
+
+      - name: Apply canonical Trainova domain fix
+        run: |
+          node <<'NODE'
+          const fs = require('fs');
+
+          fs.writeFileSync('src/app/auth/callback/route.ts', `import { NextResponse } from "next/server";
+
+import { createSupabaseServerClient } from "@/lib/supabase/server";
+
+export const dynamic = "force-dynamic";
+
+export async function GET(request: Request) {
+  const { origin, searchParams } = new URL(request.url);
+  const siteUrl = getSiteUrl(origin);
+  const code = searchParams.get("code");
+  const next = normalizeNextPath(searchParams.get("next"));
+
+  if (!code) {
+    return NextResponse.redirect(new URL("/login?error=auth_callback_failed", siteUrl));
+  }
+
+  const supabase = await createSupabaseServerClient();
+
+  if (!supabase) {
+    return NextResponse.redirect(new URL("/login?error=auth_callback_failed", siteUrl));
+  }
+
+  const { error } = await supabase.auth.exchangeCodeForSession(code);
+
+  if (error) {
+    return NextResponse.redirect(new URL("/login?error=auth_callback_failed", siteUrl));
+  }
+
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
+  if (user) {
+    const metadata = user.user_metadata ?? {};
+
+    await supabase.from("profiles").upsert(
+      {
+        id: user.id,
+        email: user.email,
+        full_name: metadata.full_name ?? metadata.name ?? null,
+        avatar_url: metadata.avatar_url ?? metadata.picture ?? null,
+        provider: user.app_metadata?.provider ?? "email",
+      },
+      { onConflict: "id" },
+    );
+  }
+
+  return NextResponse.redirect(new URL(next, siteUrl));
+}
+
+function normalizeNextPath(next: string | null) {
+  if (!next || !next.startsWith("/") || next.startsWith("//")) {
+    return "/dashboard";
+  }
+
+  return next;
+}
+
+function getSiteUrl(fallbackOrigin: string) {
+  const configuredSiteUrl = process.env.NEXT_PUBLIC_SITE_URL;
+
+  if (!configuredSiteUrl) {
+    return fallbackOrigin;
+  }
+
+  try {
+    return new URL(configuredSiteUrl).origin;
+  } catch {
+    return fallbackOrigin;
+  }
+}
+`);
+
+          fs.writeFileSync('src/proxy.ts', `import { NextResponse, type NextRequest } from "next/server";
+
+import { updateSession } from "@/lib/supabase/proxy";
+
+const TRAINOVA_ORIGIN = "https://trainova.vercel.app";
+const VERCEL_HOST_SUFFIX = ".vercel.app";
+
+export async function proxy(request: NextRequest) {
+  const canonicalRedirect = getCanonicalRedirect(request);
+
+  if (canonicalRedirect) {
+    return canonicalRedirect;
+  }
+
+  return updateSession(request);
+}
+
+export const config = {
+  matcher: ["/((?!_next/static|_next/image|favicon.ico|.*\\\\.(?:svg|png|jpg|jpeg|gif|webp|ico)$).*)"],
+};
+
+function getCanonicalRedirect(request: NextRequest) {
+  const currentHost = request.nextUrl.hostname.toLowerCase();
+
+  const canonicalOrigin = getCanonicalOrigin();
+  const canonicalUrl = new URL(canonicalOrigin);
+  const canonicalHost = canonicalUrl.hostname.toLowerCase();
+
+  if (currentHost === canonicalHost || !isLegacyVercelHost(currentHost, canonicalHost)) {
+    return null;
+  }
+
+  const redirectUrl = request.nextUrl.clone();
+  redirectUrl.protocol = canonicalUrl.protocol;
+  redirectUrl.hostname = canonicalUrl.hostname;
+  redirectUrl.port = canonicalUrl.port;
+
+  return NextResponse.redirect(redirectUrl, 308);
+}
+
+function getCanonicalOrigin() {
+  const configuredSiteUrl = process.env.NEXT_PUBLIC_SITE_URL;
+
+  if (!configuredSiteUrl) {
+    return TRAINOVA_ORIGIN;
+  }
+
+  try {
+    return new URL(configuredSiteUrl).origin;
+  } catch {
+    return TRAINOVA_ORIGIN;
+  }
+}
+
+function isLegacyVercelHost(currentHost: string, canonicalHost: string) {
+  return currentHost !== canonicalHost && currentHost.endsWith(VERCEL_HOST_SUFFIX);
+}
+`);
+
+          const authPath = 'src/components/testflow/auth-pages.tsx';
+          let auth = fs.readFileSync(authPath, 'utf8');
+          const before = `    const siteUrl =\n      typeof window !== "undefined" ? window.location.origin : process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";`;
+          const after = `    const siteUrl =\n      process.env.NEXT_PUBLIC_SITE_URL ||\n      (typeof window !== "undefined" ? window.location.origin : "http://localhost:3000");`;
+          if (!auth.includes(before)) {
+            throw new Error('Expected auth redirect block not found');
+          }
+          auth = auth.replace(before, after);
+          fs.writeFileSync(authPath, auth);
+
+          for (const file of ['package.json', 'package-lock.json']) {
+            const json = JSON.parse(fs.readFileSync(file, 'utf8'));
+            json.name = 'trainova';
+            if (json.packages && json.packages['']) {
+              json.packages[''].name = 'trainova';
+            }
+            fs.writeFileSync(file, JSON.stringify(json, null, 2) + '\n');
+          }
+          NODE
+
+          rm -f .github/workflows/apply-trainova-domain-fix.yml
+
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/app/auth/callback/route.ts src/components/testflow/auth-pages.tsx src/proxy.ts package.json package-lock.json .github/workflows/apply-trainova-domain-fix.yml
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+          git commit -m "Use Trainova production domain for auth"
+          git push origin HEAD:feature/full-trainova-project
