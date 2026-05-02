@@ -26,9 +26,14 @@ type HeaderUser = {
 export function AppShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const [user, setUser] = useState<HeaderUser | null>(null);
-  const [theme, setTheme] = useState<"light" | "dark">(() =>
-    typeof document !== "undefined" && document.documentElement.classList.contains("dark") ? "dark" : "light"
-  );
+  const [theme, setTheme] = useState<"light" | "dark">("light");
+
+  useEffect(() => {
+    queueMicrotask(() => {
+      const nextTheme = document.documentElement.classList.contains("dark") ? "dark" : "light";
+      setTheme(nextTheme);
+    });
+  }, []);
 
   useEffect(() => {
     let cancelled = false;
@@ -132,7 +137,7 @@ function GuestActions() {
       </Link>
       <Link
         className="inline-flex h-10 items-center justify-center gap-2 rounded-full bg-[#10B981] px-4 text-sm font-semibold text-white shadow-[0_14px_30px_rgba(16,185,129,0.18)] transition hover:-translate-y-0.5 hover:bg-[#047857]"
-        href="/signup?next=%2Fupload"
+        href="/upload"
       >
         Начать бесплатно
         <ArrowRight className="size-4" />

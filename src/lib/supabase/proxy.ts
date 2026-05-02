@@ -1,7 +1,7 @@
 import { createServerClient } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
 
-const protectedRoutes = ["/dashboard", "/progress", "/account", "/tests", "/upload"];
+const protectedRoutes = ["/dashboard", "/progress", "/account", "/tests"];
 const TRAINOVA_ORIGIN = "https://trainova.vercel.app";
 const VERCEL_HOST_SUFFIX = ".vercel.app";
 
