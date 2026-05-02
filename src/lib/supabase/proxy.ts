@@ -2,6 +2,8 @@ import { createServerClient } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
 
 const protectedRoutes = ["/dashboard", "/progress", "/account", "/tests", "/upload"];
+const TRAINOVA_ORIGIN = "https://trainova.vercel.app";
+const VERCEL_HOST_SUFFIX = ".vercel.app";
 
 export async function updateSession(request: NextRequest) {
   let response = NextResponse.next({ request });
@@ -12,9 +14,7 @@ export async function updateSession(request: NextRequest) {
 
   if (!url || !anonKey) {
     if (isProtected) {
-      const loginUrl = new URL("/login", request.url);
-      loginUrl.searchParams.set("next", `${pathname}${request.nextUrl.search}`);
-      return NextResponse.redirect(loginUrl);
+      return redirectToLogin(request, pathname);
     }
 
     return response;
@@ -41,10 +41,43 @@ export async function updateSession(request: NextRequest) {
   const hasUser = Boolean(user);
 
   if (isProtected && !hasUser) {
-    const loginUrl = new URL("/login", request.url);
-    loginUrl.searchParams.set("next", `${pathname}${request.nextUrl.search}`);
-    return NextResponse.redirect(loginUrl);
+    return redirectToLogin(request, pathname);
   }
 
   return response;
+}
+
+function redirectToLogin(request: NextRequest, pathname: string) {
+  const loginUrl = new URL("/login", getAuthRedirectOrigin(request));
+  loginUrl.searchParams.set("next", `${pathname}${request.nextUrl.search}`);
+
+  const response = NextResponse.redirect(loginUrl);
+  response.headers.set("Location", loginUrl.toString());
+
+  return response;
+}
+
+function getAuthRedirectOrigin(request: NextRequest) {
+  const currentHost = request.nextUrl.hostname.toLowerCase();
+
+  if (currentHost === "localhost" || currentHost === "127.0.0.1") {
+    return request.nextUrl.origin;
+  }
+
+  const configuredSiteUrl = process.env.NEXT_PUBLIC_SITE_URL;
+
+  if (!configuredSiteUrl) {
+    return TRAINOVA_ORIGIN;
+  }
+
+  try {
+    const configuredOrigin = new URL(configuredSiteUrl).origin;
+    const configuredHost = new URL(configuredOrigin).hostname.toLowerCase();
+
+    return configuredHost !== "trainova.vercel.app" && configuredHost.endsWith(VERCEL_HOST_SUFFIX)
+      ? TRAINOVA_ORIGIN
+      : configuredOrigin;
+  } catch {
+    return TRAINOVA_ORIGIN;
+  }
 }
