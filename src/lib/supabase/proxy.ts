@@ -51,10 +51,12 @@ function redirectToLogin(request: NextRequest, pathname: string) {
   const loginUrl = new URL("/login", getAuthRedirectOrigin(request));
   loginUrl.searchParams.set("next", `${pathname}${request.nextUrl.search}`);
 
-  const response = NextResponse.redirect(loginUrl);
-  response.headers.set("Location", loginUrl.toString());
-
-  return response;
+  return new Response(null, {
+    status: 307,
+    headers: {
+      Location: loginUrl.toString(),
+    },
+  });
 }
 
 function getAuthRedirectOrigin(request: NextRequest) {
