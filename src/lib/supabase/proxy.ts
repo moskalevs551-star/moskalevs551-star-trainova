@@ -1,7 +1,7 @@
 import { createServerClient } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
 
-const protectedRoutes = ["/dashboard", "/progress", "/account", "/tests"];
+const protectedRoutes = ["/dashboard", "/progress", "/account", "/tests", "/upload"];
 
 export async function updateSession(request: NextRequest) {
   let response = NextResponse.next({ request });
@@ -35,8 +35,10 @@ export async function updateSession(request: NextRequest) {
     },
   });
 
-  const { data } = await supabase.auth.getClaims();
-  const hasUser = Boolean(data?.claims?.sub);
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  const hasUser = Boolean(user);
 
   if (isProtected && !hasUser) {
     const loginUrl = new URL("/login", request.url);

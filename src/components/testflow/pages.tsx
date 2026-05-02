@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import Link from "next/link";
@@ -58,13 +58,13 @@ const pageMotion = {
 };
 
 const modeLabels: Record<TestMode, string> = {
-  training: "Тренировка",
-  exam: "Экзамен",
-  quick: "Быстрый тест",
-  mistakes: "Только ошибки",
-  review: "Повторение",
-  control: "Контрольная попытка",
-  no_hints: "Без подсказок",
+  training: "РўСЂРµРЅРёСЂРѕРІРєР°",
+  exam: "Р­РєР·Р°РјРµРЅ",
+  quick: "Быстрый режим",
+  mistakes: "РўРѕР»СЊРєРѕ РѕС€РёР±РєРё",
+  review: "РџРѕРІС‚РѕСЂРµРЅРёРµ",
+  control: "РљРѕРЅС‚СЂРѕР»СЊРЅР°СЏ РїРѕРїС‹С‚РєР°",
+  no_hints: "Р‘РµР· РїРѕРґСЃРєР°Р·РѕРє",
 };
 
 function useClientReady() {
@@ -98,10 +98,10 @@ export function LandingPage() {
           <div className="flex flex-col gap-9">
             <div className="flex max-w-4xl flex-col gap-6">
               <h1 className="text-balance text-5xl font-semibold leading-[0.98] tracking-tight text-slate-950 sm:text-6xl lg:text-7xl">
-                Загрузите тест — Trainova соберёт тренажёр
+                Р—Р°РіСЂСѓР·РёС‚Рµ С‚РµСЃС‚ вЂ” Trainova СЃРѕР±РµСЂС‘С‚ С‚СЂРµРЅР°Р¶С‘СЂ
               </h1>
               <p className="max-w-2xl text-pretty text-xl leading-9 text-slate-600">
-                Загрузите QST, TXT или ZIP — Trainova найдёт вопросы, ответы и поможет начать тренировку с сохранением прогресса.
+                Р—Р°РіСЂСѓР·РёС‚Рµ QST, TXT РёР»Рё ZIP вЂ” Trainova РЅР°Р№РґС‘С‚ РІРѕРїСЂРѕСЃС‹, РѕС‚РІРµС‚С‹ Рё РїРѕРјРѕР¶РµС‚ РЅР°С‡Р°С‚СЊ С‚СЂРµРЅРёСЂРѕРІРєСѓ СЃ СЃРѕС…СЂР°РЅРµРЅРёРµРј РїСЂРѕРіСЂРµСЃСЃР°.
               </p>
             </div>
             <div className="flex flex-col gap-3 sm:flex-row">
@@ -109,7 +109,7 @@ export function LandingPage() {
                 className="inline-flex h-13 items-center justify-center gap-2 rounded-full bg-emerald-500 px-6 text-base font-semibold text-white shadow-[0_16px_36px_rgba(34,197,94,0.2)] transition hover:-translate-y-0.5 hover:bg-emerald-600"
                 href="/upload"
               >
-                Загрузить тест
+                Р—Р°РіСЂСѓР·РёС‚СЊ С‚РµСЃС‚
                 <ArrowRight className="size-5" />
               </Link>
               <Button
@@ -117,11 +117,11 @@ export function LandingPage() {
                 onClick={startDemo}
                 variant="outline"
               >
-                Попробовать демо
+                РџРѕРїСЂРѕР±РѕРІР°С‚СЊ РґРµРјРѕ
               </Button>
             </div>
             <div className="max-w-xl border-l border-emerald-200 pl-5 text-base leading-8 text-slate-500">
-              Один главный сценарий: загрузить файл, проверить распознавание, настроить сессию и начать.
+              РћРґРёРЅ РіР»Р°РІРЅС‹Р№ СЃС†РµРЅР°СЂРёР№: Р·Р°РіСЂСѓР·РёС‚СЊ С„Р°Р№Р», РїСЂРѕРІРµСЂРёС‚СЊ СЂР°СЃРїРѕР·РЅР°РІР°РЅРёРµ, РЅР°СЃС‚СЂРѕРёС‚СЊ СЃРµСЃСЃРёСЋ Рё РЅР°С‡Р°С‚СЊ.
             </div>
           </div>
 
@@ -131,9 +131,9 @@ export function LandingPage() {
       <PageFrame className="pt-8" id="how-it-works">
         <div className="grid gap-10 border-t border-slate-900/[0.06] py-14 md:grid-cols-3">
           {[
-            ["Распознать", "QST/TXT/ZIP превращаются в единый JSON с проверкой структуры."],
-            ["Проверить", "Ошибки формата видны спокойно: только то, что стоит поправить."],
-            ["Учиться", "Один вопрос на экране, мягкая обратная связь и сохранение прогресса."],
+            ["Р Р°СЃРїРѕР·РЅР°С‚СЊ", "QST/TXT/ZIP РїСЂРµРІСЂР°С‰Р°СЋС‚СЃСЏ РІ РµРґРёРЅС‹Р№ JSON СЃ РїСЂРѕРІРµСЂРєРѕР№ СЃС‚СЂСѓРєС‚СѓСЂС‹."],
+            ["РџСЂРѕРІРµСЂРёС‚СЊ", "РћС€РёР±РєРё С„РѕСЂРјР°С‚Р° РІРёРґРЅС‹ СЃРїРѕРєРѕР№РЅРѕ: С‚РѕР»СЊРєРѕ С‚Рѕ, С‡С‚Рѕ СЃС‚РѕРёС‚ РїРѕРїСЂР°РІРёС‚СЊ."],
+            ["РЈС‡РёС‚СЊСЃСЏ", "РћРґРёРЅ РІРѕРїСЂРѕСЃ РЅР° СЌРєСЂР°РЅРµ, РјСЏРіРєР°СЏ РѕР±СЂР°С‚РЅР°СЏ СЃРІСЏР·СЊ Рё СЃРѕС…СЂР°РЅРµРЅРёРµ РїСЂРѕРіСЂРµСЃСЃР°."],
           ].map(([title, text]) => (
             <div className="flex flex-col gap-3" key={title}>
               <h2 className="text-xl font-semibold tracking-tight text-slate-950">{title}</h2>
@@ -202,7 +202,7 @@ function HeroProductVisual() {
                 <span className="size-2 rounded-full bg-[#10B981]" />
                 <span className="h-2 w-20 rounded-full bg-slate-100" />
               </div>
-              <span className="rounded-full bg-[#D1FAE5] px-3 py-1 text-xs font-semibold text-[#047857]">готово</span>
+              <span className="rounded-full bg-[#D1FAE5] px-3 py-1 text-xs font-semibold text-[#047857]">РіРѕС‚РѕРІРѕ</span>
             </div>
             <div className="mt-5 space-y-3">
               <div className="h-3 w-3/4 rounded-full bg-slate-200" />
@@ -217,15 +217,15 @@ function HeroProductVisual() {
 
           <div className="grid gap-3 sm:grid-cols-3">
             <div className="rounded-2xl border border-[#EDE9FE] bg-white/88 p-4">
-              <p className="text-xs font-semibold text-[#7C3AED]">вопросы</p>
+              <p className="text-xs font-semibold text-[#7C3AED]">РІРѕРїСЂРѕСЃС‹</p>
               <p className="mt-3 text-2xl font-semibold tracking-tight text-slate-950">24</p>
             </div>
             <div className="rounded-2xl border border-[#DBEAFE] bg-white/88 p-4">
-              <p className="text-xs font-semibold text-[#4F46E5]">ответы</p>
+              <p className="text-xs font-semibold text-[#4F46E5]">РѕС‚РІРµС‚С‹</p>
               <p className="mt-3 text-2xl font-semibold tracking-tight text-slate-950">96</p>
             </div>
             <div className="rounded-2xl border border-[#FFE4E0] bg-white/88 p-4">
-              <p className="text-xs font-semibold text-[#FF6B5A]">ошибки</p>
+              <p className="text-xs font-semibold text-[#FF6B5A]">РѕС€РёР±РєРё</p>
               <p className="mt-3 text-2xl font-semibold tracking-tight text-slate-950">3</p>
             </div>
           </div>
@@ -233,7 +233,7 @@ function HeroProductVisual() {
           <div className="rounded-[1.5rem] border border-slate-900/[0.055] bg-white/92 p-4">
             <div className="mb-3 flex items-center justify-between">
               <span className="h-2 w-24 rounded-full bg-slate-100" />
-              <span className="rounded-full bg-[#FFE4E0] px-3 py-1 text-xs font-semibold text-[#E34D3D]">повтор ошибок</span>
+              <span className="rounded-full bg-[#FFE4E0] px-3 py-1 text-xs font-semibold text-[#E34D3D]">РїРѕРІС‚РѕСЂ РѕС€РёР±РѕРє</span>
             </div>
             <FlowProgress value={72} />
           </div>
@@ -248,20 +248,20 @@ function DemoPreviewSection() {
     <PageFrame className="pt-8" id="features">
       <div className="mb-10 flex flex-col gap-4">
         <h2 className="text-balance text-4xl font-semibold tracking-tight text-slate-950">
-          Как может выглядеть ваш тренажёр
+          РљР°Рє РјРѕР¶РµС‚ РІС‹РіР»СЏРґРµС‚СЊ РІР°С€ С‚СЂРµРЅР°Р¶С‘СЂ
         </h2>
         <p className="max-w-2xl text-lg leading-8 text-slate-600">
-          После загрузки файла Trainova превращает вопросы в понятный интерактивный формат. Эти карточки — демо, не пользовательские данные.
+          РџРѕСЃР»Рµ Р·Р°РіСЂСѓР·РєРё С„Р°Р№Р»Р° Trainova РїСЂРµРІСЂР°С‰Р°РµС‚ РІРѕРїСЂРѕСЃС‹ РІ РїРѕРЅСЏС‚РЅС‹Р№ РёРЅС‚РµСЂР°РєС‚РёРІРЅС‹Р№ С„РѕСЂРјР°С‚. Р­С‚Рё РєР°СЂС‚РѕС‡РєРё вЂ” РґРµРјРѕ, РЅРµ РїРѕР»СЊР·РѕРІР°С‚РµР»СЊСЃРєРёРµ РґР°РЅРЅС‹Рµ.
         </p>
       </div>
       <div className="grid gap-4 lg:grid-cols-4">
         <QuietPanel className="p-5 lg:col-span-2">
           <FlowProgress value={42} />
           <h3 className="mt-7 text-2xl font-semibold tracking-tight text-slate-950">
-            Какой вариант лучше описывает активное повторение?
+            РљР°РєРѕР№ РІР°СЂРёР°РЅС‚ Р»СѓС‡С€Рµ РѕРїРёСЃС‹РІР°РµС‚ Р°РєС‚РёРІРЅРѕРµ РїРѕРІС‚РѕСЂРµРЅРёРµ?
           </h3>
           <div className="mt-6 grid gap-3">
-            {["Возвращаться к сложным вопросам", "Читать все ответы подряд", "Проходить только полный экзамен", "Не смотреть результат"].map((answer, index) => (
+            {["Р’РѕР·РІСЂР°С‰Р°С‚СЊСЃСЏ Рє СЃР»РѕР¶РЅС‹Рј РІРѕРїСЂРѕСЃР°Рј", "Р§РёС‚Р°С‚СЊ РІСЃРµ РѕС‚РІРµС‚С‹ РїРѕРґСЂСЏРґ", "РџСЂРѕС…РѕРґРёС‚СЊ С‚РѕР»СЊРєРѕ РїРѕР»РЅС‹Р№ СЌРєР·Р°РјРµРЅ", "РќРµ СЃРјРѕС‚СЂРµС‚СЊ СЂРµР·СѓР»СЊС‚Р°С‚"].map((answer, index) => (
               <div
                 className={cn(
                   "rounded-2xl px-4 py-3 text-sm font-medium",
@@ -275,27 +275,27 @@ function DemoPreviewSection() {
           </div>
         </QuietPanel>
         <QuietPanel className="p-5">
-          <p className="text-sm font-medium text-amber-700">Только ошибки</p>
+          <p className="text-sm font-medium text-amber-700">РўРѕР»СЊРєРѕ РѕС€РёР±РєРё</p>
           <h3 className="mt-4 text-3xl font-semibold tracking-tight text-slate-950">
-            Повторяем 12 сложных вопросов
+            РџРѕРІС‚РѕСЂСЏРµРј 12 СЃР»РѕР¶РЅС‹С… РІРѕРїСЂРѕСЃРѕРІ
           </h3>
           <FlowProgress className="mt-8" value={58} />
         </QuietPanel>
         <QuietPanel className="p-5">
-          <p className="text-sm font-medium text-emerald-700">Результат</p>
+          <p className="text-sm font-medium text-emerald-700">Р РµР·СѓР»СЊС‚Р°С‚</p>
           <h3 className="mt-4 text-6xl font-semibold tracking-tight text-slate-950">86%</h3>
-          <p className="mt-3 text-sm leading-6 text-slate-500">Правильно 26, ошибок 4</p>
+          <p className="mt-3 text-sm leading-6 text-slate-500">РџСЂР°РІРёР»СЊРЅРѕ 26, РѕС€РёР±РѕРє 4</p>
           <div className="mt-7 inline-flex h-10 items-center rounded-full bg-slate-950 px-4 text-sm font-semibold text-white">
-            Повторить ошибки
+            РџРѕРІС‚РѕСЂРёС‚СЊ РѕС€РёР±РєРё
           </div>
         </QuietPanel>
         <QuietPanel className="p-5 lg:col-span-4">
           <div className="grid gap-4 md:grid-cols-4">
             {[
-              ["Режим", "Тренировка"],
-              ["Вопросов", "20"],
-              ["Порядок", "Случайно"],
-              ["Таймер", "Без таймера"],
+              ["Р РµР¶РёРј", "РўСЂРµРЅРёСЂРѕРІРєР°"],
+              ["Р’РѕРїСЂРѕСЃРѕРІ", "20"],
+              ["РџРѕСЂСЏРґРѕРє", "РЎР»СѓС‡Р°Р№РЅРѕ"],
+              ["РўР°Р№РјРµСЂ", "Р‘РµР· С‚Р°Р№РјРµСЂР°"],
             ].map(([label, value]) => (
               <div className="rounded-2xl bg-slate-50 p-4" key={label}>
                 <p className="text-sm text-slate-500">{label}</p>
@@ -314,19 +314,19 @@ function SiteFooter() {
     {
       title: "Product",
       links: [
-        ["Возможности", "/#features"],
-        ["Как это работает", "/#how-it-works"],
-        ["Демо", "/demo"],
-        ["Документация", "/docs"],
+        ["Р’РѕР·РјРѕР¶РЅРѕСЃС‚Рё", "/#features"],
+        ["РљР°Рє СЌС‚Рѕ СЂР°Р±РѕС‚Р°РµС‚", "/#how-it-works"],
+        ["Р”РµРјРѕ", "/demo"],
+        ["Р”РѕРєСѓРјРµРЅС‚Р°С†РёСЏ", "/docs"],
       ],
     },
     {
       title: "Resources",
       links: [
-        ["Блог", "/blog"],
-        ["Помощь", "/help"],
-        ["Форматы файлов", "/formats"],
-        ["Безопасность", "/security"],
+        ["Р‘Р»РѕРі", "/blog"],
+        ["РџРѕРјРѕС‰СЊ", "/help"],
+        ["Р¤РѕСЂРјР°С‚С‹ С„Р°Р№Р»РѕРІ", "/formats"],
+        ["Р‘РµР·РѕРїР°СЃРЅРѕСЃС‚СЊ", "/security"],
       ],
     },
   ];
@@ -337,7 +337,7 @@ function SiteFooter() {
         <div>
           <BrandFooter />
           <p className="mt-5 max-w-sm text-sm leading-7 text-slate-500">
-            Trainova превращает старые файлы с тестами в современные интерактивные тренажёры.
+            Trainova РїСЂРµРІСЂР°С‰Р°РµС‚ СЃС‚Р°СЂС‹Рµ С„Р°Р№Р»С‹ СЃ С‚РµСЃС‚Р°РјРё РІ СЃРѕРІСЂРµРјРµРЅРЅС‹Рµ РёРЅС‚РµСЂР°РєС‚РёРІРЅС‹Рµ С‚СЂРµРЅР°Р¶С‘СЂС‹.
           </p>
           <p className="mt-5 text-sm text-slate-400">Created by M. Stanislav and G. Kutsenko</p>
         </div>
@@ -380,7 +380,7 @@ function FlowProgress({ value, className }: { value: number; className?: string 
 
   return (
     <div
-      aria-label="Прогресс"
+      aria-label="РџСЂРѕРіСЂРµСЃСЃ"
       aria-valuemax={100}
       aria-valuemin={0}
       aria-valuenow={Math.round(safeValue)}
@@ -401,17 +401,17 @@ export function AboutPage() {
       <PageFrame>
         <motion.div {...pageMotion} className="mx-auto flex max-w-4xl flex-col gap-10">
           <PageTitle
-            description="Trainova создан как простой инструмент для превращения старых файлов с тестами в современные интерактивные тренажёры."
-            title="О проекте"
+            description="Trainova СЃРѕР·РґР°РЅ РєР°Рє РїСЂРѕСЃС‚РѕР№ РёРЅСЃС‚СЂСѓРјРµРЅС‚ РґР»СЏ РїСЂРµРІСЂР°С‰РµРЅРёСЏ СЃС‚Р°СЂС‹С… С„Р°Р№Р»РѕРІ СЃ С‚РµСЃС‚Р°РјРё РІ СЃРѕРІСЂРµРјРµРЅРЅС‹Рµ РёРЅС‚РµСЂР°РєС‚РёРІРЅС‹Рµ С‚СЂРµРЅР°Р¶С‘СЂС‹."
+            title="Рћ РїСЂРѕРµРєС‚Рµ"
           />
           <QuietPanel className="p-8 sm:p-10">
             <p className="text-xl leading-9 text-slate-700">
-              Проект помогает быстро загрузить файл, проверить вопросы, настроить тренировку и сохранить прогресс. Главная идея — убрать ручную рутину и оставить понятный путь: импорт, проверка, тренировка, результат.
+              РџСЂРѕРµРєС‚ РїРѕРјРѕРіР°РµС‚ Р±С‹СЃС‚СЂРѕ Р·Р°РіСЂСѓР·РёС‚СЊ С„Р°Р№Р», РїСЂРѕРІРµСЂРёС‚СЊ РІРѕРїСЂРѕСЃС‹, РЅР°СЃС‚СЂРѕРёС‚СЊ С‚СЂРµРЅРёСЂРѕРІРєСѓ Рё СЃРѕС…СЂР°РЅРёС‚СЊ РїСЂРѕРіСЂРµСЃСЃ. Р“Р»Р°РІРЅР°СЏ РёРґРµСЏ вЂ” СѓР±СЂР°С‚СЊ СЂСѓС‡РЅСѓСЋ СЂСѓС‚РёРЅСѓ Рё РѕСЃС‚Р°РІРёС‚СЊ РїРѕРЅСЏС‚РЅС‹Р№ РїСѓС‚СЊ: РёРјРїРѕСЂС‚, РїСЂРѕРІРµСЂРєР°, С‚СЂРµРЅРёСЂРѕРІРєР°, СЂРµР·СѓР»СЊС‚Р°С‚.
             </p>
             <div className="mt-10 grid gap-4 sm:grid-cols-2">
               {["M. Stanislav", "G. Kutsenko"].map((author) => (
                 <div className="rounded-3xl bg-slate-50 p-5" key={author}>
-                  <p className="text-sm font-medium text-slate-500">Автор</p>
+                  <p className="text-sm font-medium text-slate-500">РђРІС‚РѕСЂ</p>
                   <p className="mt-2 text-2xl font-semibold tracking-tight text-slate-950">{author}</p>
                 </div>
               ))}
@@ -439,13 +439,13 @@ export function DemoPage() {
       <PageFrame>
         <motion.div {...pageMotion} className="mx-auto flex max-w-5xl flex-col gap-10">
           <PageTitle
-            description="Демо-тесты read-only и не попадают в личный кабинет, пока вы не сохраните копию в аккаунт."
-            title="Попробуйте демо-тренажёр"
+            description="Р”РµРјРѕ-С‚РµСЃС‚С‹ read-only Рё РЅРµ РїРѕРїР°РґР°СЋС‚ РІ Р»РёС‡РЅС‹Р№ РєР°Р±РёРЅРµС‚, РїРѕРєР° РІС‹ РЅРµ СЃРѕС…СЂР°РЅРёС‚Рµ РєРѕРїРёСЋ РІ Р°РєРєР°СѓРЅС‚."
+            title="РџРѕРїСЂРѕР±СѓР№С‚Рµ РґРµРјРѕ-С‚СЂРµРЅР°Р¶С‘СЂ"
           />
           <div className="grid gap-4 md:grid-cols-3">
             {samples.map((sample) => (
               <QuietPanel className="p-6 transition hover:-translate-y-1 hover:shadow-[0_28px_90px_rgba(15,23,42,0.08)]" key={sample.key}>
-                <p className="text-sm font-medium text-emerald-700">Демо</p>
+                <p className="text-sm font-medium text-emerald-700">Р”РµРјРѕ</p>
                 <h2 className="mt-4 text-3xl font-semibold tracking-tight text-slate-950">{sample.title}</h2>
                 <p className="mt-3 text-sm text-slate-500">{sample.fileName}</p>
                 <button
@@ -453,7 +453,7 @@ export function DemoPage() {
                   onClick={() => openDemo(sample.key)}
                   type="button"
                 >
-                  Открыть демо
+                  РћС‚РєСЂС‹С‚СЊ РґРµРјРѕ
                 </button>
               </QuietPanel>
             ))}
@@ -474,7 +474,7 @@ export function UploadPage() {
 
   async function readFile(file: File) {
     setStatus("reading");
-    setMessage("Читаю файл и ищу тесты внутри.");
+    setMessage("Р§РёС‚Р°СЋ С„Р°Р№Р» Рё РёС‰Сѓ С‚РµСЃС‚С‹ РІРЅСѓС‚СЂРё.");
 
     try {
       const nextCandidates = await extractImportCandidates(file);
@@ -485,17 +485,17 @@ export function UploadPage() {
       if (firstUsable && nextCandidates.filter((candidate) => !candidate.ignored).length === 1) {
         await importCandidate(firstUsable);
       } else {
-        setMessage("Нашёл несколько файлов. Выберите тот, который нужно распознать.");
+        setMessage("РќР°С€С‘Р» РЅРµСЃРєРѕР»СЊРєРѕ С„Р°Р№Р»РѕРІ. Р’С‹Р±РµСЂРёС‚Рµ С‚РѕС‚, РєРѕС‚РѕСЂС‹Р№ РЅСѓР¶РЅРѕ СЂР°СЃРїРѕР·РЅР°С‚СЊ.");
       }
     } catch (error) {
       setStatus("error");
-      setMessage(error instanceof Error ? error.message : "Не получилось прочитать файл.");
+      setMessage(error instanceof Error ? error.message : "РќРµ РїРѕР»СѓС‡РёР»РѕСЃСЊ РїСЂРѕС‡РёС‚Р°С‚СЊ С„Р°Р№Р».");
     }
   }
 
   async function importCandidate(candidate: ImportCandidate) {
     setStatus("reading");
-    setMessage("Распознаю вопросы и варианты ответов.");
+    setMessage("Р Р°СЃРїРѕР·РЅР°СЋ РІРѕРїСЂРѕСЃС‹ Рё РІР°СЂРёР°РЅС‚С‹ РѕС‚РІРµС‚РѕРІ.");
     const quiz = await parseImportCandidate(candidate);
     saveQuiz(quiz);
     saveSettings(settingsForQuiz(quiz));
@@ -515,8 +515,8 @@ export function UploadPage() {
         <motion.div {...pageMotion} className="mx-auto flex max-w-3xl flex-col gap-10">
           <PageTitle
             align="center"
-            description="Один спокойный шаг: выберите файл, а детали проверки появятся после распознавания."
-            title="Загрузите тест"
+            description="РћРґРёРЅ СЃРїРѕРєРѕР№РЅС‹Р№ С€Р°Рі: РІС‹Р±РµСЂРёС‚Рµ С„Р°Р№Р», Р° РґРµС‚Р°Р»Рё РїСЂРѕРІРµСЂРєРё РїРѕСЏРІСЏС‚СЃСЏ РїРѕСЃР»Рµ СЂР°СЃРїРѕР·РЅР°РІР°РЅРёСЏ."
+            title="Р—Р°РіСЂСѓР·РёС‚Рµ С‚РµСЃС‚"
           />
           <div
             className={cn(
@@ -553,10 +553,10 @@ export function UploadPage() {
             />
             <UploadCloud className="mb-7 size-12 text-emerald-500" />
             <h2 className="text-3xl font-semibold tracking-tight text-slate-950">
-              Перетащите файл сюда
+              РџРµСЂРµС‚Р°С‰РёС‚Рµ С„Р°Р№Р» СЃСЋРґР°
             </h2>
-            <p className="mt-3 text-base text-slate-500">Поддерживаются .qst, .txt и .zip</p>
-            <p className="mt-8 text-sm text-slate-400">{message || "EXE внутри архива будут проигнорированы."}</p>
+            <p className="mt-3 text-base text-slate-500">РџРѕРґРґРµСЂР¶РёРІР°СЋС‚СЃСЏ .qst, .txt Рё .zip</p>
+            <p className="mt-8 text-sm text-slate-400">{message || "EXE РІРЅСѓС‚СЂРё Р°СЂС…РёРІР° Р±СѓРґСѓС‚ РїСЂРѕРёРіРЅРѕСЂРёСЂРѕРІР°РЅС‹."}</p>
           </div>
 
           {candidates.length > 1 ? (
@@ -571,7 +571,7 @@ export function UploadPage() {
                 >
                   <span>
                     <span className="block font-medium text-slate-950">{candidate.name}</span>
-                    <span className="text-sm text-slate-500">{candidate.reason ?? "Можно распознать"}</span>
+                    <span className="text-sm text-slate-500">{candidate.reason ?? "РњРѕР¶РЅРѕ СЂР°СЃРїРѕР·РЅР°С‚СЊ"}</span>
                   </span>
                   <ArrowRight className="size-4 text-slate-400" />
                 </button>
@@ -581,7 +581,7 @@ export function UploadPage() {
 
           <div className="text-center">
             <Button className="rounded-full px-5" onClick={startDemo} variant="ghost">
-              Нет файла? Открыть демо
+              РќРµС‚ С„Р°Р№Р»Р°? РћС‚РєСЂС‹С‚СЊ РґРµРјРѕ
             </Button>
           </div>
         </motion.div>
@@ -618,11 +618,11 @@ export function ParseResultPage() {
   }
 
   if (!ready) {
-    return <LoadingState title="Готовим результат распознавания" />;
+    return <LoadingState title="Р“РѕС‚РѕРІРёРј СЂРµР·СѓР»СЊС‚Р°С‚ СЂР°СЃРїРѕР·РЅР°РІР°РЅРёСЏ" />;
   }
 
   if (!quiz) {
-    return <EmptyState title="Сначала загрузите тест" action="Перейти к загрузке" href="/upload" />;
+    return <EmptyState title="РЎРЅР°С‡Р°Р»Р° Р·Р°РіСЂСѓР·РёС‚Рµ С‚РµСЃС‚" action="РџРµСЂРµР№С‚Рё Рє Р·Р°РіСЂСѓР·РєРµ" href="/upload" />;
   }
 
   const validation = quiz.validation;
@@ -642,22 +642,22 @@ export function ParseResultPage() {
             align="center"
             description={
               issueCount > 0
-                ? `Есть ${issueCountText(issueCount)}, которые стоит проверить. Основной тест уже собран.`
-                : "Структура выглядит аккуратно. Можно быстро проверить вопросы или сразу начать."
+                ? `Р•СЃС‚СЊ ${issueCountText(issueCount)}, РєРѕС‚РѕСЂС‹Рµ СЃС‚РѕРёС‚ РїСЂРѕРІРµСЂРёС‚СЊ. РћСЃРЅРѕРІРЅРѕР№ С‚РµСЃС‚ СѓР¶Рµ СЃРѕР±СЂР°РЅ.`
+                : "РЎС‚СЂСѓРєС‚СѓСЂР° РІС‹РіР»СЏРґРёС‚ Р°РєРєСѓСЂР°С‚РЅРѕ. РњРѕР¶РЅРѕ Р±С‹СЃС‚СЂРѕ РїСЂРѕРІРµСЂРёС‚СЊ РІРѕРїСЂРѕСЃС‹ РёР»Рё СЃСЂР°Р·Сѓ РЅР°С‡Р°С‚СЊ."
             }
-            title={`Мы нашли ${validation.totalQuestions} вопросов`}
+            title={`РњС‹ РЅР°С€Р»Рё ${validation.totalQuestions} РІРѕРїСЂРѕСЃРѕРІ`}
           />
 
           <QuietPanel className="p-8">
             <div className="grid gap-8 md:grid-cols-[1fr_auto] md:items-end">
               <div>
                 <p className="text-sm font-medium uppercase tracking-[0.18em] text-emerald-700">
-                  Результат распознавания
+                  Р РµР·СѓР»СЊС‚Р°С‚ СЂР°СЃРїРѕР·РЅР°РІР°РЅРёСЏ
                 </p>
                 <div className="mt-5 grid gap-5 sm:grid-cols-3">
-                  <SummaryNumber label="вариантов" value={validation.totalAnswers} />
-                  <SummaryNumber label="правильных ответов" value={validation.totalCorrectAnswers} />
-                  <SummaryNumber label="кодировка" value={quiz.encoding ?? "utf-8"} />
+                  <SummaryNumber label="РІР°СЂРёР°РЅС‚РѕРІ" value={validation.totalAnswers} />
+                  <SummaryNumber label="РїСЂР°РІРёР»СЊРЅС‹С… РѕС‚РІРµС‚РѕРІ" value={validation.totalCorrectAnswers} />
+                  <SummaryNumber label="РєРѕРґРёСЂРѕРІРєР°" value={quiz.encoding ?? "utf-8"} />
                 </div>
               </div>
               <div className="flex flex-col gap-3 sm:flex-row md:flex-col">
@@ -665,14 +665,14 @@ export function ParseResultPage() {
                   className="h-12 rounded-full bg-emerald-500 px-6 text-base text-white hover:bg-emerald-600"
                   onClick={() => router.push("/editor")}
                 >
-                  Проверить вопросы
+                  РџСЂРѕРІРµСЂРёС‚СЊ РІРѕРїСЂРѕСЃС‹
                 </Button>
                 <Button
                   className="h-12 rounded-full px-6 text-base"
                   onClick={() => router.push("/settings")}
                   variant="outline"
                 >
-                  Начать тренировку
+                  РќР°С‡Р°С‚СЊ С‚СЂРµРЅРёСЂРѕРІРєСѓ
                 </Button>
                 {!quiz.cloudId && !quiz.isDemo ? (
                   <Button
@@ -681,14 +681,14 @@ export function ParseResultPage() {
                     onClick={() => void saveCloudQuiz()}
                     variant="ghost"
                   >
-                    {saveState === "saving" ? "Сохраняем..." : "Сохранить тренажёр"}
+                    {saveState === "saving" ? "РЎРѕС…СЂР°РЅСЏРµРј..." : "РЎРѕС…СЂР°РЅРёС‚СЊ С‚СЂРµРЅР°Р¶С‘СЂ"}
                   </Button>
                 ) : null}
               </div>
             </div>
             {saveState === "error" ? (
               <p className="mt-5 rounded-2xl bg-red-50 px-4 py-3 text-sm text-red-600">
-                Не получилось сохранить в аккаунт. Войдите или проверьте Supabase env.
+                РќРµ РїРѕР»СѓС‡РёР»РѕСЃСЊ СЃРѕС…СЂР°РЅРёС‚СЊ РІ Р°РєРєР°СѓРЅС‚. Р’РѕР№РґРёС‚Рµ РёР»Рё РїСЂРѕРІРµСЂСЊС‚Рµ Supabase env.
               </p>
             ) : null}
 
@@ -697,7 +697,7 @@ export function ParseResultPage() {
               onClick={() => setShowDetails((value) => !value)}
               type="button"
             >
-              Детали проверки
+              Р”РµС‚Р°Р»Рё РїСЂРѕРІРµСЂРєРё
               <ChevronDown className={cn("size-4 transition", showDetails && "rotate-180")} />
             </button>
 
@@ -710,12 +710,12 @@ export function ParseResultPage() {
                   initial={{ height: 0, opacity: 0 }}
                 >
                   <div className="mt-6 grid gap-3 text-sm text-slate-600 sm:grid-cols-2">
-                    <IssueLine label="Пропущенные номера" value={listOrZero(validation.missingNumbers)} />
-                    <IssueLine label="Без правильного ответа" value={listOrZero(validation.questionsWithoutCorrectAnswer)} />
-                    <IssueLine label="Несколько правильных" value={listOrZero(validation.questionsWithMultipleCorrectAnswers)} />
-                    <IssueLine label="Мало вариантов" value={listOrZero(validation.questionsWithTooFewAnswers)} />
-                    <IssueLine label="Дубликаты ответов" value={listOrZero(validation.questionsWithDuplicateAnswers)} />
-                    <IssueLine label="Ошибки формата" value={validation.formatIssues.length || 0} />
+                    <IssueLine label="РџСЂРѕРїСѓС‰РµРЅРЅС‹Рµ РЅРѕРјРµСЂР°" value={listOrZero(validation.missingNumbers)} />
+                    <IssueLine label="Р‘РµР· РїСЂР°РІРёР»СЊРЅРѕРіРѕ РѕС‚РІРµС‚Р°" value={listOrZero(validation.questionsWithoutCorrectAnswer)} />
+                    <IssueLine label="РќРµСЃРєРѕР»СЊРєРѕ РїСЂР°РІРёР»СЊРЅС‹С…" value={listOrZero(validation.questionsWithMultipleCorrectAnswers)} />
+                    <IssueLine label="РњР°Р»Рѕ РІР°СЂРёР°РЅС‚РѕРІ" value={listOrZero(validation.questionsWithTooFewAnswers)} />
+                    <IssueLine label="Р”СѓР±Р»РёРєР°С‚С‹ РѕС‚РІРµС‚РѕРІ" value={listOrZero(validation.questionsWithDuplicateAnswers)} />
+                    <IssueLine label="РћС€РёР±РєРё С„РѕСЂРјР°С‚Р°" value={validation.formatIssues.length || 0} />
                   </div>
                 </motion.div>
               ) : null}
@@ -788,11 +788,11 @@ export function EditorPage() {
   }
 
   if (!ready) {
-    return <LoadingState title="Открываем редактор" />;
+    return <LoadingState title="РћС‚РєСЂС‹РІР°РµРј СЂРµРґР°РєС‚РѕСЂ" />;
   }
 
   if (!quiz || !selected) {
-    return <EmptyState title="Нет теста для редактирования" action="Загрузить тест" href="/upload" />;
+    return <EmptyState title="РќРµС‚ С‚РµСЃС‚Р° РґР»СЏ СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏ" action="Р—Р°РіСЂСѓР·РёС‚СЊ С‚РµСЃС‚" href="/upload" />;
   }
 
   return (
@@ -801,14 +801,14 @@ export function EditorPage() {
         <motion.div {...pageMotion} className="flex flex-col gap-8">
           <div className="flex flex-col justify-between gap-5 md:flex-row md:items-end">
             <PageTitle
-              description="Минимальный редактор: список, выбранный вопрос и только нужные настройки."
-              title="Проверьте вопросы"
+              description="РњРёРЅРёРјР°Р»СЊРЅС‹Р№ СЂРµРґР°РєС‚РѕСЂ: СЃРїРёСЃРѕРє, РІС‹Р±СЂР°РЅРЅС‹Р№ РІРѕРїСЂРѕСЃ Рё С‚РѕР»СЊРєРѕ РЅСѓР¶РЅС‹Рµ РЅР°СЃС‚СЂРѕР№РєРё."
+              title="РџСЂРѕРІРµСЂСЊС‚Рµ РІРѕРїСЂРѕСЃС‹"
             />
             <div className="flex items-center gap-3">
-              {saved ? <span className="text-sm font-medium text-emerald-700">Сохранено</span> : null}
+              {saved ? <span className="text-sm font-medium text-emerald-700">РЎРѕС…СЂР°РЅРµРЅРѕ</span> : null}
               <Button className="rounded-full" onClick={persist} variant="outline">
                 <Save data-icon="inline-start" />
-                Сохранить
+                РЎРѕС…СЂР°РЅРёС‚СЊ
               </Button>
               <Button
                 className="rounded-full bg-emerald-500 px-5 text-white hover:bg-emerald-600"
@@ -817,7 +817,7 @@ export function EditorPage() {
                   router.push("/settings");
                 }}
               >
-                Сохранить и начать
+                РЎРѕС…СЂР°РЅРёС‚СЊ Рё РЅР°С‡Р°С‚СЊ
               </Button>
             </div>
           </div>
@@ -826,9 +826,9 @@ export function EditorPage() {
             <QuietPanel className="overflow-hidden p-3">
               <div className="flex gap-2 p-2">
                 {[
-                  ["all", "Все"],
-                  ["issues", "Ошибки"],
-                  ["missing_correct", "Без ответа"],
+                  ["all", "Р’СЃРµ"],
+                  ["issues", "РћС€РёР±РєРё"],
+                  ["missing_correct", "Р‘РµР· РѕС‚РІРµС‚Р°"],
                 ].map(([value, label]) => (
                   <button
                     className={cn(
@@ -863,7 +863,7 @@ export function EditorPage() {
 
             <QuietPanel className="p-6 sm:p-8">
               <label className="text-sm font-medium text-slate-500" htmlFor="question-text">
-                Вопрос {selected.number}
+                Р’РѕРїСЂРѕСЃ {selected.number}
               </label>
               <textarea
                 className="mt-3 min-h-28 w-full resize-none rounded-2xl border border-transparent bg-slate-50 p-4 text-2xl font-semibold leading-snug tracking-tight text-slate-950 outline-none transition focus:border-emerald-200 focus:bg-white"
@@ -916,7 +916,7 @@ export function EditorPage() {
                       ...question.answers,
                       {
                         id: `${question.id}-a${question.answers.length + 1}`,
-                        text: "Новый вариант",
+                        text: "РќРѕРІС‹Р№ РІР°СЂРёР°РЅС‚",
                         correct: false,
                       },
                     ],
@@ -924,37 +924,37 @@ export function EditorPage() {
                 }
                 variant="ghost"
               >
-                Добавить вариант
+                Р”РѕР±Р°РІРёС‚СЊ РІР°СЂРёР°РЅС‚
               </Button>
             </QuietPanel>
 
             <QuietPanel className="p-6">
               <div className="flex flex-col gap-6">
                 <div>
-                  <p className="text-sm font-medium text-slate-500">Статус</p>
+                  <p className="text-sm font-medium text-slate-500">РЎС‚Р°С‚СѓСЃ</p>
                   <p className="mt-2 text-2xl font-semibold text-slate-950">
-                    {selected.status === "valid" ? "Готов" : "Проверить"}
+                    {selected.status === "valid" ? "Р“РѕС‚РѕРІ" : "РџСЂРѕРІРµСЂРёС‚СЊ"}
                   </p>
                 </div>
                 <div className="flex flex-col gap-3">
                   <ToggleLine
                     checked={Boolean(selected.flagged)}
-                    label="Спорный вопрос"
+                    label="РЎРїРѕСЂРЅС‹Р№ РІРѕРїСЂРѕСЃ"
                     onChange={() => updateSelected((question) => ({ ...question, flagged: !question.flagged }))}
                   />
                   <ToggleLine
                     checked={Boolean(selected.favorite)}
-                    label="Избранный"
+                    label="РР·Р±СЂР°РЅРЅС‹Р№"
                     onChange={() => updateSelected((question) => ({ ...question, favorite: !question.favorite }))}
                   />
                   <ToggleLine
                     checked={Boolean(selected.difficult)}
-                    label="Сложный"
+                    label="РЎР»РѕР¶РЅС‹Р№"
                     onChange={() => updateSelected((question) => ({ ...question, difficult: !question.difficult }))}
                   />
                 </div>
                 <div className="rounded-2xl bg-emerald-50 p-4 text-sm leading-6 text-emerald-900">
-                  Совет: исправьте только спорные места. Остальное можно оставить как есть и начать тренировку.
+                  РЎРѕРІРµС‚: РёСЃРїСЂР°РІСЊС‚Рµ С‚РѕР»СЊРєРѕ СЃРїРѕСЂРЅС‹Рµ РјРµСЃС‚Р°. РћСЃС‚Р°Р»СЊРЅРѕРµ РјРѕР¶РЅРѕ РѕСЃС‚Р°РІРёС‚СЊ РєР°Рє РµСЃС‚СЊ Рё РЅР°С‡Р°С‚СЊ С‚СЂРµРЅРёСЂРѕРІРєСѓ.
                 </div>
               </div>
             </QuietPanel>
@@ -979,7 +979,7 @@ function AnswerEditorRow({
   return (
     <div className="flex items-center gap-3 rounded-2xl bg-white p-2 ring-1 ring-slate-900/[0.06]">
       <button
-        aria-label="Отметить правильным"
+        aria-label="РћС‚РјРµС‚РёС‚СЊ РїСЂР°РІРёР»СЊРЅС‹Рј"
         className={cn(
           "size-8 rounded-full border transition",
           answer.correct ? "border-emerald-500 bg-emerald-500" : "border-slate-200 bg-white"
@@ -993,7 +993,7 @@ function AnswerEditorRow({
         value={answer.text}
       />
       <Button className="rounded-full text-slate-400" onClick={onRemove} size="sm" variant="ghost">
-        Удалить
+        РЈРґР°Р»РёС‚СЊ
       </Button>
     </div>
   );
@@ -1007,7 +1007,7 @@ export function SettingsPage() {
     const current = loadQuiz();
     return loadSettings(current);
   });
-  const [activeTab, setActiveTab] = useState("Основное");
+  const [activeTab, setActiveTab] = useState("РћСЃРЅРѕРІРЅРѕРµ");
   const [showAdvanced, setShowAdvanced] = useState(false);
 
   function updateSettings(updater: (settings: TestSettings) => TestSettings) {
@@ -1026,26 +1026,26 @@ export function SettingsPage() {
   }
 
   if (!ready) {
-    return <LoadingState title="Готовим настройки" />;
+    return <LoadingState title="Р“РѕС‚РѕРІРёРј РЅР°СЃС‚СЂРѕР№РєРё" />;
   }
 
   if (!quiz) {
-    return <EmptyState title="Сначала нужен тест" action="Загрузить тест" href="/upload" />;
+    return <EmptyState title="РЎРЅР°С‡Р°Р»Р° РЅСѓР¶РµРЅ С‚РµСЃС‚" action="Р—Р°РіСЂСѓР·РёС‚СЊ С‚РµСЃС‚" href="/upload" />;
   }
 
   const tabs = [
-    "Основное",
-    "Вопросы",
-    "Ответы",
-    "Прохождение",
-    "Таймер",
-    "Попытки",
-    "Проверка ответов",
-    "Прогресс",
-    "Результаты",
-    "Доступ",
-    "Внешний вид",
-    "Импорт",
+    "РћСЃРЅРѕРІРЅРѕРµ",
+    "Р’РѕРїСЂРѕСЃС‹",
+    "РћС‚РІРµС‚С‹",
+    "РџСЂРѕС…РѕР¶РґРµРЅРёРµ",
+    "РўР°Р№РјРµСЂ",
+    "РџРѕРїС‹С‚РєРё",
+    "РџСЂРѕРІРµСЂРєР° РѕС‚РІРµС‚РѕРІ",
+    "РџСЂРѕРіСЂРµСЃСЃ",
+    "Р РµР·СѓР»СЊС‚Р°С‚С‹",
+    "Р”РѕСЃС‚СѓРї",
+    "Р’РЅРµС€РЅРёР№ РІРёРґ",
+    "РРјРїРѕСЂС‚",
   ];
   const range = validateQuestionRange(settings, quiz);
 
@@ -1055,15 +1055,15 @@ export function SettingsPage() {
         <motion.div {...pageMotion} className="mx-auto flex max-w-4xl flex-col gap-9">
           <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
             <PageTitle
-              description="Выберите только главное. Полные параметры можно открыть отдельно."
-              title="Настройка тренировки"
+              description="Р’С‹Р±РµСЂРёС‚Рµ С‚РѕР»СЊРєРѕ РіР»Р°РІРЅРѕРµ. РџРѕР»РЅС‹Рµ РїР°СЂР°РјРµС‚СЂС‹ РјРѕР¶РЅРѕ РѕС‚РєСЂС‹С‚СЊ РѕС‚РґРµР»СЊРЅРѕ."
+              title="РќР°СЃС‚СЂРѕР№РєР° С‚СЂРµРЅРёСЂРѕРІРєРё"
             />
             <Button
               className="h-12 rounded-full bg-emerald-500 px-7 text-base font-semibold text-white shadow-[0_14px_34px_rgba(34,197,94,0.18)] hover:bg-emerald-600"
               disabled={!range.valid}
               onClick={persistAndStart}
             >
-              Начать тренировку
+              РќР°С‡Р°С‚СЊ С‚СЂРµРЅРёСЂРѕРІРєСѓ
               <ArrowRight data-icon="inline-end" />
             </Button>
           </div>
@@ -1071,28 +1071,33 @@ export function SettingsPage() {
           <QuietPanel className="p-6 sm:p-8">
             <div className="grid gap-8 md:grid-cols-2">
               <QuickChoice
-                label="Режим"
+                label="Р РµР¶РёРј"
                 options={[
-                  ["training", "Тренировка"],
-                  ["exam", "Экзамен"],
-                  ["mistakes", "Только ошибки"],
+                  ["training", "РўСЂРµРЅРёСЂРѕРІРєР°"],
+                  ["exam", "Р­РєР·Р°РјРµРЅ"],
+                  ["mistakes", "РўРѕР»СЊРєРѕ РѕС€РёР±РєРё"],
+                  ["quick", "Быстрый режим"],
                 ]}
                 value={settings.mode.type}
                 onChange={(value) =>
                   updateSettings((current) => ({
                     ...current,
                     mode: { ...current.mode, type: value as TestMode },
+                    timer:
+                      value === "quick"
+                        ? { ...current.timer, enabled: true, type: "per_question", secondsPerQuestion: current.timer.secondsPerQuestion ?? 15 }
+                        : current.timer,
                   }))
                 }
               />
               <QuickChoice
-                label="Количество вопросов"
+                label="РљРѕР»РёС‡РµСЃС‚РІРѕ РІРѕРїСЂРѕСЃРѕРІ"
                 options={[
                   ["10", "10"],
                   ["20", "20"],
                   ["50", "50"],
-                  ["all", "Все"],
-                  ["range", "Свой диапазон"],
+                  ["all", "Р’СЃРµ"],
+                  ["range", "РЎРІРѕР№ РґРёР°РїР°Р·РѕРЅ"],
                 ]}
                 value={settings.questions.questionCount}
                 onChange={(value) =>
@@ -1111,7 +1116,7 @@ export function SettingsPage() {
                 <div className="rounded-[1.5rem] bg-[#F8FAFC] p-5 md:col-span-2">
                   <div className="grid gap-4 sm:grid-cols-2">
                     <label className="flex flex-col gap-2">
-                      <span className="text-sm font-medium text-slate-600">С вопроса</span>
+                      <span className="text-sm font-medium text-slate-600">РЎ РІРѕРїСЂРѕСЃР°</span>
                       <input
                         className="h-11 rounded-2xl border border-slate-200 bg-white px-4 text-base outline-none transition focus:border-indigo-300"
                         max={maxQuestionNumber(quiz)}
@@ -1127,7 +1132,7 @@ export function SettingsPage() {
                       />
                     </label>
                     <label className="flex flex-col gap-2">
-                      <span className="text-sm font-medium text-slate-600">По вопрос</span>
+                      <span className="text-sm font-medium text-slate-600">РџРѕ РІРѕРїСЂРѕСЃ</span>
                       <input
                         className="h-11 rounded-2xl border border-slate-200 bg-white px-4 text-base outline-none transition focus:border-indigo-300"
                         max={maxQuestionNumber(quiz)}
@@ -1149,10 +1154,10 @@ export function SettingsPage() {
                 </div>
               ) : null}
               <QuickChoice
-                label="Порядок"
+                label="РџРѕСЂСЏРґРѕРє"
                 options={[
-                  ["file", "По порядку"],
-                  ["random", "Случайно"],
+                  ["file", "РџРѕ РїРѕСЂСЏРґРєСѓ"],
+                  ["random", "РЎР»СѓС‡Р°Р№РЅРѕ"],
                 ]}
                 value={settings.questions.questionOrder === "random" ? "random" : "file"}
                 onChange={(value) =>
@@ -1166,10 +1171,10 @@ export function SettingsPage() {
                 }
               />
               <QuickChoice
-                label="Ответы"
+                label="РћС‚РІРµС‚С‹"
                 options={[
-                  ["file", "Как в файле"],
-                  ["safe_random", "Перемешать"],
+                  ["file", "РљР°Рє РІ С„Р°Р№Р»Рµ"],
+                  ["safe_random", "РџРµСЂРµРјРµС€Р°С‚СЊ"],
                 ]}
                 value={settings.answers.answerOrder}
                 onChange={(value) =>
@@ -1180,11 +1185,11 @@ export function SettingsPage() {
                 }
               />
               <QuickChoice
-                label="Показывать правильный ответ"
+                label="РџРѕРєР°Р·С‹РІР°С‚СЊ РїСЂР°РІРёР»СЊРЅС‹Р№ РѕС‚РІРµС‚"
                 options={[
-                  ["immediately", "Сразу"],
-                  ["end", "В конце"],
-                  ["never", "Не показывать"],
+                  ["immediately", "РЎСЂР°Р·Сѓ"],
+                  ["end", "Р’ РєРѕРЅС†Рµ"],
+                  ["never", "РќРµ РїРѕРєР°Р·С‹РІР°С‚СЊ"],
                 ]}
                 value={settings.review.showCorrectAnswer}
                 onChange={(value) =>
@@ -1198,11 +1203,11 @@ export function SettingsPage() {
                 }
               />
               <QuickChoice
-                label="Таймер"
+                label="РўР°Р№РјРµСЂ"
                 options={[
-                  ["off", "Без таймера"],
-                  ["30", "30 минут"],
-                  ["custom", "Свой вариант"],
+                  ["off", "Р‘РµР· С‚Р°Р№РјРµСЂР°"],
+                  ["30", "30 РјРёРЅСѓС‚"],
+                  ["custom", "РЎРІРѕР№ РІР°СЂРёР°РЅС‚"],
                 ]}
                 value={!settings.timer.enabled ? "off" : settings.timer.minutes === 30 ? "30" : "custom"}
                 onChange={(value) =>
@@ -1216,17 +1221,40 @@ export function SettingsPage() {
                   }))
                 }
               />
+              {settings.mode.type === "quick" ? (
+                <QuickChoice
+                  label="Время на вопрос"
+                  options={[
+                    ["10", "10 сек"],
+                    ["15", "15 сек"],
+                    ["20", "20 сек"],
+                    ["30", "30 сек"],
+                  ]}
+                  value={String(settings.timer.secondsPerQuestion ?? 15)}
+                  onChange={(value) =>
+                    updateSettings((current) => ({
+                      ...current,
+                      timer: {
+                        ...current.timer,
+                        enabled: true,
+                        type: "per_question",
+                        secondsPerQuestion: Number(value),
+                      },
+                    }))
+                  }
+                />
+              ) : null}
             </div>
             <div className="mt-8 flex flex-col justify-between gap-3 border-t border-slate-900/[0.06] pt-6 sm:flex-row sm:items-center">
               <p className="text-sm leading-6 text-slate-500">
-                {quiz.questions.length} вопросов в тесте. Обычную тренировку можно запустить прямо сейчас.
+                {quiz.questions.length} РІРѕРїСЂРѕСЃРѕРІ РІ С‚РµСЃС‚Рµ. РћР±С‹С‡РЅСѓСЋ С‚СЂРµРЅРёСЂРѕРІРєСѓ РјРѕР¶РЅРѕ Р·Р°РїСѓСЃС‚РёС‚СЊ РїСЂСЏРјРѕ СЃРµР№С‡Р°СЃ.
               </p>
               <button
                 className="inline-flex items-center gap-2 text-sm font-semibold text-slate-700 transition hover:text-slate-950"
                 onClick={() => setShowAdvanced((value) => !value)}
                 type="button"
               >
-                Расширенные настройки
+                Р Р°СЃС€РёСЂРµРЅРЅС‹Рµ РЅР°СЃС‚СЂРѕР№РєРё
                 <ChevronDown className={cn("size-4 transition", showAdvanced && "rotate-180")} />
               </button>
             </div>
@@ -1277,19 +1305,19 @@ function validateQuestionRange(settings: TestSettings, quiz: QuizDocument | null
   const max = maxQuestionNumber(quiz);
 
   if (!Number.isFinite(from) || !Number.isFinite(to) || from < 1 || to < 1 || from > max || to > max || from > to) {
-    return { valid: false, count: 0, message: "Проверьте диапазон вопросов" };
+    return { valid: false, count: 0, message: "РџСЂРѕРІРµСЂСЊС‚Рµ РґРёР°РїР°Р·РѕРЅ РІРѕРїСЂРѕСЃРѕРІ" };
   }
 
   const count = quiz.questions.filter((question) => question.number >= from && question.number <= to).length;
 
   if (count === 0) {
-    return { valid: false, count, message: "В этом диапазоне нет вопросов" };
+    return { valid: false, count, message: "Р’ СЌС‚РѕРј РґРёР°РїР°Р·РѕРЅРµ РЅРµС‚ РІРѕРїСЂРѕСЃРѕРІ" };
   }
 
   return {
     valid: true,
     count,
-    message: `Будет выбрано ${count} ${pluralizeQuestions(count)} из диапазона ${from}–${to}`,
+    message: `Р‘СѓРґРµС‚ РІС‹Р±СЂР°РЅРѕ ${count} ${pluralizeQuestions(count)} РёР· РґРёР°РїР°Р·РѕРЅР° ${from}вЂ“${to}`,
   };
 }
 
@@ -1302,14 +1330,14 @@ function pluralizeQuestions(count: number) {
   const mod100 = count % 100;
 
   if (mod10 === 1 && mod100 !== 11) {
-    return "вопрос";
+    return "РІРѕРїСЂРѕСЃ";
   }
 
   if (mod10 >= 2 && mod10 <= 4 && (mod100 < 12 || mod100 > 14)) {
-    return "вопроса";
+    return "РІРѕРїСЂРѕСЃР°";
   }
 
-  return "вопросов";
+  return "РІРѕРїСЂРѕСЃРѕРІ";
 }
 
 function QuickChoice({
@@ -1351,22 +1379,22 @@ function renderSettingsTab(
   update: (updater: (settings: TestSettings) => TestSettings) => void,
   quiz: QuizDocument
 ) {
-  if (tab === "Основное") {
+  if (tab === "РћСЃРЅРѕРІРЅРѕРµ") {
     return (
       <div className="grid gap-5 md:grid-cols-2">
         <TextField
-          label="Название"
+          label="РќР°Р·РІР°РЅРёРµ"
           value={settings.general.title}
           onChange={(value) => update((current) => ({ ...current, general: { ...current.general, title: value } }))}
         />
         <TextField
-          label="Категория"
+          label="РљР°С‚РµРіРѕСЂРёСЏ"
           value={settings.general.category}
           onChange={(value) => update((current) => ({ ...current, general: { ...current.general, category: value } }))}
         />
         <TextField
           className="md:col-span-2"
-          label="Описание"
+          label="РћРїРёСЃР°РЅРёРµ"
           value={settings.general.description}
           onChange={(value) => update((current) => ({ ...current, general: { ...current.general, description: value } }))}
         />
@@ -1374,24 +1402,24 @@ function renderSettingsTab(
     );
   }
 
-  if (tab === "Вопросы") {
+  if (tab === "Р’РѕРїСЂРѕСЃС‹") {
     return (
       <SettingsRows
         rows={[
-          ["Всего в тесте", `${quiz.questions.length}`],
-          ["Выбор", selectionLabel(settings.questions.questionSelection)],
-          ["Порядок", orderLabel(settings.questions.questionOrder)],
+          ["Р’СЃРµРіРѕ РІ С‚РµСЃС‚Рµ", `${quiz.questions.length}`],
+          ["Р’С‹Р±РѕСЂ", selectionLabel(settings.questions.questionSelection)],
+          ["РџРѕСЂСЏРґРѕРє", orderLabel(settings.questions.questionOrder)],
         ]}
       />
     );
   }
 
-  if (tab === "Ответы") {
+  if (tab === "РћС‚РІРµС‚С‹") {
     return (
       <div className="flex flex-col gap-4">
         <ToggleLine
           checked={settings.answers.protectSpecialAnswers}
-          label="Не перемешивать специальные варианты"
+          label="РќРµ РїРµСЂРµРјРµС€РёРІР°С‚СЊ СЃРїРµС†РёР°Р»СЊРЅС‹Рµ РІР°СЂРёР°РЅС‚С‹"
           onChange={() =>
             update((current) => ({
               ...current,
@@ -1399,93 +1427,93 @@ function renderSettingsTab(
             }))
           }
         />
-        <SettingsRows rows={[["Порядок ответов", answerOrderLabel(settings.answers.answerOrder)]]} />
+        <SettingsRows rows={[["РџРѕСЂСЏРґРѕРє РѕС‚РІРµС‚РѕРІ", answerOrderLabel(settings.answers.answerOrder)]]} />
       </div>
     );
   }
 
-  if (tab === "Прохождение") {
+  if (tab === "РџСЂРѕС…РѕР¶РґРµРЅРёРµ") {
     return (
       <div className="flex flex-col gap-4">
         <ToggleLine
           checked={settings.mode.allowSkip}
-          label="Разрешить пропуск"
+          label="Р Р°Р·СЂРµС€РёС‚СЊ РїСЂРѕРїСѓСЃРє"
           onChange={() => update((current) => ({ ...current, mode: { ...current.mode, allowSkip: !current.mode.allowSkip } }))}
         />
         <ToggleLine
           checked={settings.mode.showHints}
-          label="Показывать подсказки"
+          label="РџРѕРєР°Р·С‹РІР°С‚СЊ РїРѕРґСЃРєР°Р·РєРё"
           onChange={() => update((current) => ({ ...current, mode: { ...current.mode, showHints: !current.mode.showHints } }))}
         />
       </div>
     );
   }
 
-  if (tab === "Таймер") {
+  if (tab === "РўР°Р№РјРµСЂ") {
     return (
       <div className="flex flex-col gap-4">
         <ToggleLine
           checked={settings.timer.enabled}
-          label="Включить таймер"
+          label="Р’РєР»СЋС‡РёС‚СЊ С‚Р°Р№РјРµСЂ"
           onChange={() => update((current) => ({ ...current, timer: { ...current.timer, enabled: !current.timer.enabled, minutes: 30 } }))}
         />
-        <SettingsRows rows={[["По умолчанию", settings.timer.enabled ? "30 минут" : "Без таймера"]]} />
+        <SettingsRows rows={[["РџРѕ СѓРјРѕР»С‡Р°РЅРёСЋ", settings.timer.enabled ? "30 РјРёРЅСѓС‚" : "Р‘РµР· С‚Р°Р№РјРµСЂР°"]]} />
       </div>
     );
   }
 
-  if (tab === "Попытки") {
+  if (tab === "РџРѕРїС‹С‚РєРё") {
     return (
       <SettingsRows
         rows={[
-          ["Лимит", settings.attempts.limitEnabled ? `${settings.attempts.maxAttempts ?? 3}` : "Без ограничений"],
-          ["История", settings.attempts.saveAttemptHistory ? "Сохранять" : "Не сохранять"],
-          ["Лучший результат", settings.attempts.saveBestResult ? "Сохранять" : "Не сохранять"],
+          ["Р›РёРјРёС‚", settings.attempts.limitEnabled ? `${settings.attempts.maxAttempts ?? 3}` : "Р‘РµР· РѕРіСЂР°РЅРёС‡РµРЅРёР№"],
+          ["РСЃС‚РѕСЂРёСЏ", settings.attempts.saveAttemptHistory ? "РЎРѕС…СЂР°РЅСЏС‚СЊ" : "РќРµ СЃРѕС…СЂР°РЅСЏС‚СЊ"],
+          ["Р›СѓС‡С€РёР№ СЂРµР·СѓР»СЊС‚Р°С‚", settings.attempts.saveBestResult ? "РЎРѕС…СЂР°РЅСЏС‚СЊ" : "РќРµ СЃРѕС…СЂР°РЅСЏС‚СЊ"],
         ]}
       />
     );
   }
 
-  if (tab === "Проверка ответов") {
+  if (tab === "РџСЂРѕРІРµСЂРєР° РѕС‚РІРµС‚РѕРІ") {
     return (
       <SettingsRows
         rows={[
-          ["Правильный ответ", reviewLabel(settings.review.showCorrectAnswer)],
-          ["Объяснения", explanationLabel(settings.review.showExplanation)],
-          ["Формат оценки", "Процент, баллы и список ошибок"],
+          ["РџСЂР°РІРёР»СЊРЅС‹Р№ РѕС‚РІРµС‚", reviewLabel(settings.review.showCorrectAnswer)],
+          ["РћР±СЉСЏСЃРЅРµРЅРёСЏ", explanationLabel(settings.review.showExplanation)],
+          ["Р¤РѕСЂРјР°С‚ РѕС†РµРЅРєРё", "РџСЂРѕС†РµРЅС‚, Р±Р°Р»Р»С‹ Рё СЃРїРёСЃРѕРє РѕС€РёР±РѕРє"],
         ]}
       />
     );
   }
 
-  if (tab === "Прогресс") {
+  if (tab === "РџСЂРѕРіСЂРµСЃСЃ") {
     return (
       <div className="flex flex-col gap-4">
-        <ToggleLine checked={settings.progress.saveProgress} label="Сохранять прогресс" onChange={() => update((current) => ({ ...current, progress: { ...current.progress, saveProgress: !current.progress.saveProgress } }))} />
-        <SettingsRows rows={[["Сохранять", "позицию, ошибки, время, избранное, сложные вопросы"]]} />
+        <ToggleLine checked={settings.progress.saveProgress} label="РЎРѕС…СЂР°РЅСЏС‚СЊ РїСЂРѕРіСЂРµСЃСЃ" onChange={() => update((current) => ({ ...current, progress: { ...current.progress, saveProgress: !current.progress.saveProgress } }))} />
+        <SettingsRows rows={[["РЎРѕС…СЂР°РЅСЏС‚СЊ", "РїРѕР·РёС†РёСЋ, РѕС€РёР±РєРё, РІСЂРµРјСЏ, РёР·Р±СЂР°РЅРЅРѕРµ, СЃР»РѕР¶РЅС‹Рµ РІРѕРїСЂРѕСЃС‹"]]} />
       </div>
     );
   }
 
-  if (tab === "Результаты") {
-    return <SettingsRows rows={[["Показывать", "процент, ошибки, время, лучший результат"], ["Действие", "Повторить ошибки"]]} />;
+  if (tab === "Р РµР·СѓР»СЊС‚Р°С‚С‹") {
+    return <SettingsRows rows={[["РџРѕРєР°Р·С‹РІР°С‚СЊ", "РїСЂРѕС†РµРЅС‚, РѕС€РёР±РєРё, РІСЂРµРјСЏ, Р»СѓС‡С€РёР№ СЂРµР·СѓР»СЊС‚Р°С‚"], ["Р”РµР№СЃС‚РІРёРµ", "РџРѕРІС‚РѕСЂРёС‚СЊ РѕС€РёР±РєРё"]]} />;
   }
 
-  if (tab === "Доступ") {
-    return <SettingsRows rows={[["Видимость", accessLabel(settings.access.visibility)], ["Копирование", settings.access.allowCopy ? "Разрешено" : "Запрещено"]]} />;
+  if (tab === "Р”РѕСЃС‚СѓРї") {
+    return <SettingsRows rows={[["Р’РёРґРёРјРѕСЃС‚СЊ", accessLabel(settings.access.visibility)], ["РљРѕРїРёСЂРѕРІР°РЅРёРµ", settings.access.allowCopy ? "Р Р°Р·СЂРµС€РµРЅРѕ" : "Р—Р°РїСЂРµС‰РµРЅРѕ"]]} />;
   }
 
-  if (tab === "Внешний вид") {
-    return <SettingsRows rows={[["Тема", appearanceLabel(settings.appearance.theme)], ["Формат", "Один вопрос на экран"], ["Анимации", "Включены"]]} />;
+  if (tab === "Р’РЅРµС€РЅРёР№ РІРёРґ") {
+    return <SettingsRows rows={[["РўРµРјР°", appearanceLabel(settings.appearance.theme)], ["Р¤РѕСЂРјР°С‚", "РћРґРёРЅ РІРѕРїСЂРѕСЃ РЅР° СЌРєСЂР°РЅ"], ["РђРЅРёРјР°С†РёРё", "Р’РєР»СЋС‡РµРЅС‹"]]} />;
   }
 
   return (
     <SettingsRows
       rows={[
-        ["Кодировка", settings.import.encodingFallbacks.join(" → ")],
-        ["Пустые строки", "Игнорировать"],
-        ["EXE в ZIP", "Игнорировать и никогда не запускать"],
-        ["Проверка", "номера, ответы, дубликаты, формат"],
+        ["РљРѕРґРёСЂРѕРІРєР°", settings.import.encodingFallbacks.join(" в†’ ")],
+        ["РџСѓСЃС‚С‹Рµ СЃС‚СЂРѕРєРё", "РРіРЅРѕСЂРёСЂРѕРІР°С‚СЊ"],
+        ["EXE РІ ZIP", "РРіРЅРѕСЂРёСЂРѕРІР°С‚СЊ Рё РЅРёРєРѕРіРґР° РЅРµ Р·Р°РїСѓСЃРєР°С‚СЊ"],
+        ["РџСЂРѕРІРµСЂРєР°", "РЅРѕРјРµСЂР°, РѕС‚РІРµС‚С‹, РґСѓР±Р»РёРєР°С‚С‹, С„РѕСЂРјР°С‚"],
       ]}
     />
   );
@@ -1573,11 +1601,28 @@ export function TestPage() {
   const [answers, setAnswers] = useState<AttemptAnswer[]>(initialState.answers);
 
   if (!ready) {
-    return <LoadingState title="Собираем тренировку" />;
+    return <LoadingState title="РЎРѕР±РёСЂР°РµРј С‚СЂРµРЅРёСЂРѕРІРєСѓ" />;
   }
 
   if (!quiz || questions.length === 0) {
-    return <EmptyState title="Нет вопросов для прохождения" action="Загрузить тест" href="/upload" />;
+    const emptyTitle = settings.mode.type === "mistakes" ? "Ошибок нет" : "РќРµС‚ РІРѕРїСЂРѕСЃРѕРІ РґР»СЏ РїСЂРѕС…РѕР¶РґРµРЅРёСЏ";
+    const emptyDescription =
+      settings.mode.type === "mistakes"
+        ? "Отличный результат. В этом тесте пока нет вопросов для повторения."
+        : undefined;
+
+    return (
+      <EmptyState
+        title={emptyTitle}
+        description={emptyDescription}
+        action={settings.mode.type === "mistakes" ? "В кабинет" : "Р—Р°РіСЂСѓР·РёС‚СЊ С‚РµСЃС‚"}
+        href={settings.mode.type === "mistakes" ? "/dashboard" : "/upload"}
+      />
+    );
+  }
+
+  if (settings.mode.type === "quick") {
+    return <GameTestRunner quiz={quiz} settings={settings} questions={questions} initialIndex={index} initialAnswers={answers} />;
   }
 
   const activeQuiz = quiz;
@@ -1670,23 +1715,23 @@ export function TestPage() {
 
   return (
     <AppShell>
-      <PageFrame>
-        <motion.div {...pageMotion} className="mx-auto max-w-3xl">
-          <div className="mb-10 flex items-center gap-5">
+      <PageFrame className="py-8 lg:py-10">
+        <motion.div {...pageMotion} className="mx-auto max-w-4xl">
+          <div className="mb-7 flex items-center gap-5">
             <FlowProgress className="flex-1" value={progress} />
             <span className="text-sm font-medium text-slate-500">
               {index + 1}/{questions.length}
             </span>
           </div>
 
-          <div className="min-h-[560px]">
-            <p className="mb-5 text-sm font-medium uppercase tracking-[0.18em] text-emerald-700">
+          <div className="min-h-[430px]">
+            <p className="mb-4 text-sm font-medium uppercase tracking-[0.18em] text-emerald-700">
               {modeLabels[settings.mode.type]}
             </p>
-            <h1 className="text-balance text-4xl font-semibold leading-tight tracking-tight text-slate-950 sm:text-5xl">
+            <h1 className="max-w-3xl text-pretty text-3xl font-semibold leading-[1.16] tracking-tight text-slate-950 sm:text-4xl">
               {question.text}
             </h1>
-            <div className="mt-10 flex flex-col gap-3">
+            <div className="mt-8 grid gap-3">
               {question.answers.map((answer) => {
                 const selected = selectedAnswerId === answer.id;
                 const revealCorrect = answered && answer.correct;
@@ -1695,7 +1740,7 @@ export function TestPage() {
                 return (
                   <button
                     className={cn(
-                      "w-full rounded-2xl border border-slate-200 bg-white p-5 text-left text-lg font-medium text-slate-800 transition hover:-translate-y-0.5 hover:border-emerald-300",
+                      "w-full rounded-2xl border border-slate-200 bg-white p-4 text-left text-base font-medium leading-7 text-slate-800 transition hover:-translate-y-0.5 hover:border-emerald-300 sm:p-5 sm:text-lg",
                       selected && "border-emerald-400 bg-emerald-50",
                       revealCorrect && "border-emerald-500 bg-emerald-50 text-emerald-900",
                       revealWrong && "border-amber-300 bg-amber-50 text-amber-950"
@@ -1719,9 +1764,9 @@ export function TestPage() {
                   exit={{ opacity: 0, y: -8 }}
                   initial={{ opacity: 0, y: 8 }}
                 >
-                  <p className="text-lg font-semibold">{isCorrect ? "Верно" : "Стоит повторить"}</p>
+                  <p className="text-lg font-semibold">{isCorrect ? "Р’РµСЂРЅРѕ" : "РЎС‚РѕРёС‚ РїРѕРІС‚РѕСЂРёС‚СЊ"}</p>
                   <p className="mt-1 text-sm text-slate-300">
-                    {isCorrect ? "Отлично, двигаемся дальше." : "Правильный ответ подсвечен зелёным."}
+                    {isCorrect ? "РћС‚Р»РёС‡РЅРѕ, РґРІРёРіР°РµРјСЃСЏ РґР°Р»СЊС€Рµ." : "РџСЂР°РІРёР»СЊРЅС‹Р№ РѕС‚РІРµС‚ РїРѕРґСЃРІРµС‡РµРЅ Р·РµР»С‘РЅС‹Рј."}
                   </p>
                 </motion.div>
               ) : null}
@@ -1730,12 +1775,12 @@ export function TestPage() {
 
           <div className="mt-8 flex flex-col justify-between gap-3 sm:flex-row">
             <Button className="rounded-full" onClick={() => router.push("/dashboard")} variant="ghost">
-              Завершить позже
+              Р—Р°РІРµСЂС€РёС‚СЊ РїРѕР·Р¶Рµ
             </Button>
             <div className="flex gap-3">
               {settings.mode.allowSkip ? (
                 <Button className="rounded-full" onClick={() => submitAnswer(true)} variant="outline">
-                  Пропустить
+                  РџСЂРѕРїСѓСЃС‚РёС‚СЊ
                 </Button>
               ) : null}
               {answered ? (
@@ -1743,7 +1788,7 @@ export function TestPage() {
                   className="rounded-full bg-emerald-500 px-6 text-white hover:bg-emerald-600"
                   onClick={() => goNext(answers)}
                 >
-                  Дальше
+                  Р”Р°Р»СЊС€Рµ
                 </Button>
               ) : (
                 <Button
@@ -1751,7 +1796,7 @@ export function TestPage() {
                   disabled={!selectedAnswerId}
                   onClick={() => submitAnswer(false)}
                 >
-                  Ответить
+                  РћС‚РІРµС‚РёС‚СЊ
                 </Button>
               )}
             </div>
@@ -1762,7 +1807,223 @@ export function TestPage() {
   );
 }
 
+function GameTestRunner({
+  quiz,
+  settings,
+  questions,
+  initialIndex,
+  initialAnswers,
+}: {
+  quiz: QuizDocument;
+  settings: TestSettings;
+  questions: QuizQuestion[];
+  initialIndex: number;
+  initialAnswers: AttemptAnswer[];
+}) {
+  const router = useRouter();
+  const secondsPerQuestion = settings.timer.secondsPerQuestion ?? 15;
+  const [index, setIndex] = useState(initialIndex);
+  const [answers, setAnswers] = useState<AttemptAnswer[]>(initialAnswers);
+  const [selectedAnswerId, setSelectedAnswerId] = useState<string | undefined>();
+  const [answered, setAnswered] = useState(false);
+  const [timeLeft, setTimeLeft] = useState(secondsPerQuestion);
+  const [gameScore, setGameScore] = useState(0);
+  const [streak, setStreak] = useState(0);
+  const [feedback, setFeedback] = useState<"correct" | "wrong" | "timeout" | null>(null);
+  const timeoutHandled = useRef(false);
+  const question = questions[Math.min(index, questions.length - 1)];
+  const progress = Math.round(((index + (answered ? 1 : 0)) / questions.length) * 100);
+  const zoneStyles = [
+    "bg-[#4F46E5] text-white shadow-[0_18px_45px_rgba(79,70,229,0.22)]",
+    "bg-[#14B8A6] text-white shadow-[0_18px_45px_rgba(20,184,166,0.22)]",
+    "bg-[#FF6B5A] text-white shadow-[0_18px_45px_rgba(255,107,90,0.2)]",
+    "bg-[#F59E0B] text-slate-950 shadow-[0_18px_45px_rgba(245,158,11,0.2)]",
+  ];
+
+  useEffect(() => {
+    if (answered) {
+      return;
+    }
+
+    const interval = window.setInterval(() => {
+      setTimeLeft((current) => {
+        if (current <= 1) {
+          if (!timeoutHandled.current) {
+            timeoutHandled.current = true;
+            window.setTimeout(() => handleAnswer(undefined, true), 0);
+          }
+          return 0;
+        }
+
+        return current - 1;
+      });
+    }, 1000);
+
+    return () => window.clearInterval(interval);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [answered, index]);
+
+  function handleAnswer(answer?: QuizAnswer, timedOut = false) {
+    if (answered) {
+      return;
+    }
+
+    const correct = Boolean(answer?.correct);
+    const points = correct ? 100 + Math.max(0, timeLeft) * 5 : 0;
+    const nextStreak = correct ? streak + 1 : 0;
+    const attemptAnswer: AttemptAnswer = {
+      questionId: question.id,
+      selectedAnswerId: answer?.id,
+      correct,
+      skipped: timedOut || !answer,
+      answeredAt: new Date().toISOString(),
+    };
+    const nextAnswers = [...answers.filter((item) => item.questionId !== question.id), attemptAnswer];
+
+    setSelectedAnswerId(answer?.id);
+    setAnswered(true);
+    setFeedback(timedOut ? "timeout" : correct ? "correct" : "wrong");
+    setGameScore((current) => current + points);
+    setStreak(nextStreak);
+    setAnswers(nextAnswers);
+    void saveProgressStepToAccount({ quiz, answers: nextAnswers, currentQuestionId: question.id });
+
+    window.setTimeout(() => goNext(nextAnswers), 900);
+  }
+
+  function goNext(nextAnswers: AttemptAnswer[]) {
+    if (index >= questions.length - 1) {
+      finish(nextAnswers);
+      return;
+    }
+
+    const nextIndex = index + 1;
+    setTimeLeft(secondsPerQuestion);
+    setAnswered(false);
+    setSelectedAnswerId(undefined);
+    setFeedback(null);
+    timeoutHandled.current = false;
+    setIndex(nextIndex);
+    saveAttempt({
+      id: "active",
+      testId: quiz.id,
+      startedAt: new Date().toISOString(),
+      currentIndex: nextIndex,
+      answers: nextAnswers,
+      score: scoreOf(nextAnswers),
+      timeSpentSeconds: nextAnswers.length * secondsPerQuestion,
+      completed: false,
+    });
+  }
+
+  function finish(finalAnswers: AttemptAnswer[]) {
+    const completedAttempt: TestAttempt = {
+      id: crypto.randomUUID(),
+      testId: quiz.id,
+      startedAt: new Date(Date.now() - finalAnswers.length * secondsPerQuestion * 1000).toISOString(),
+      finishedAt: new Date().toISOString(),
+      currentIndex: questions.length - 1,
+      answers: finalAnswers,
+      score: scoreOf(finalAnswers),
+      timeSpentSeconds: finalAnswers.length * secondsPerQuestion,
+      completed: true,
+    };
+    const progressState = ensureProgress(quiz.id);
+    const wrongIds = Array.from(new Set(finalAnswers.filter((answer) => !answer.correct).map((answer) => answer.questionId)));
+    const attempts = [...progressState.attempts, completedAttempt].slice(-10);
+    const bestScore = Math.max(progressState.bestScore, completedAttempt.score);
+    const averageScore = Math.round(attempts.reduce((sum, attempt) => sum + attempt.score, 0) / attempts.length);
+
+    saveAttempt(completedAttempt);
+    saveProgress({
+      ...progressState,
+      lastQuestionId: question.id,
+      solvedToday: progressState.solvedToday + finalAnswers.length,
+      streak: Math.max(progressState.streak, nextPositiveStreak(streak)),
+      bestScore,
+      averageScore,
+      wrongQuestionIds: wrongIds,
+      attempts,
+    });
+    void saveAttemptToAccount({ quiz, attempt: completedAttempt });
+    router.push("/results");
+  }
+
+  return (
+    <AppShell>
+      <PageFrame className="py-6 lg:py-8">
+        <motion.div {...pageMotion} className="mx-auto flex min-h-[calc(100vh-9rem)] max-w-6xl flex-col">
+          <div className="mb-5 grid gap-4 rounded-[1.5rem] bg-white/80 p-4 shadow-[0_18px_55px_rgba(15,23,42,0.05)] ring-1 ring-slate-900/[0.04] dark:bg-white/[0.06] md:grid-cols-[1fr_auto_auto_auto] md:items-center">
+            <FlowProgress className="md:max-w-md" value={progress} />
+            <span className="text-sm font-semibold text-slate-600">
+              {index + 1}/{questions.length}
+            </span>
+            <span className="rounded-full bg-slate-950 px-4 py-2 text-sm font-semibold text-white dark:bg-white dark:text-slate-950">
+              {timeLeft}s
+            </span>
+            <span className="rounded-full bg-emerald-50 px-4 py-2 text-sm font-semibold text-emerald-700">
+              {gameScore} pts · x{streak}
+            </span>
+          </div>
+
+          <div className="mb-6 text-center">
+            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-emerald-700">Быстрый режим</p>
+            <h1 className="mx-auto mt-4 max-w-4xl text-pretty text-3xl font-semibold leading-[1.15] tracking-tight text-slate-950 sm:text-4xl">
+              {question.text}
+            </h1>
+            {feedback ? (
+              <p className="mt-3 text-base font-semibold text-slate-600">
+                {feedback === "correct" ? "Верно. Очки начислены." : feedback === "timeout" ? "Время вышло." : "Неверно. Этот вопрос попадёт в повторение."}
+              </p>
+            ) : null}
+          </div>
+
+          <div className="grid flex-1 gap-4 sm:grid-cols-2">
+            {question.answers.map((answer, answerIndex) => {
+              const selected = selectedAnswerId === answer.id;
+              const revealCorrect = answered && answer.correct;
+              const revealWrong = answered && selected && !answer.correct;
+
+              return (
+                <button
+                  className={cn(
+                    "min-h-[132px] rounded-[1.75rem] p-5 text-left text-xl font-semibold leading-snug transition hover:-translate-y-1 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-emerald-300 sm:min-h-[170px] sm:p-7",
+                    zoneStyles[answerIndex % zoneStyles.length],
+                    revealCorrect && "ring-4 ring-lime-300",
+                    revealWrong && "animate-pulse ring-4 ring-white/80",
+                    answered && !selected && !answer.correct && "opacity-70"
+                  )}
+                  disabled={answered}
+                  key={answer.id}
+                  onClick={() => handleAnswer(answer)}
+                  type="button"
+                >
+                  <span className="mb-4 flex size-9 items-center justify-center rounded-full bg-white/22 text-base">
+                    {String.fromCharCode(65 + answerIndex)}
+                  </span>
+                  <span className="block break-words">{answer.text}</span>
+                </button>
+              );
+            })}
+          </div>
+
+          <div className="mt-5 flex justify-center">
+            <Button className="rounded-full text-slate-500" onClick={() => router.push("/dashboard")} variant="ghost">
+              Завершить позже
+            </Button>
+          </div>
+        </motion.div>
+      </PageFrame>
+    </AppShell>
+  );
+}
+
+function nextPositiveStreak(value: number) {
+  return Math.max(1, value);
+}
+
 export function ResultsPage() {
+  const router = useRouter();
   const ready = useClientReady();
   const [state] = useState(() => {
     const currentQuiz = loadQuiz();
@@ -1775,16 +2036,40 @@ export function ResultsPage() {
   const { quiz, attempt, progress } = state;
 
   if (!ready) {
-    return <LoadingState title="Считаем результат" />;
+    return <LoadingState title="РЎС‡РёС‚Р°РµРј СЂРµР·СѓР»СЊС‚Р°С‚" />;
   }
 
   if (!quiz || !attempt) {
-    return <EmptyState title="Результата пока нет" action="Пройти тест" href="/test" />;
+    return <EmptyState title="Р РµР·СѓР»СЊС‚Р°С‚Р° РїРѕРєР° РЅРµС‚" action="РџСЂРѕР№С‚Рё С‚РµСЃС‚" href="/test" />;
   }
 
   const correct = attempt.answers.filter((answer) => answer.correct).length;
   const skipped = attempt.answers.filter((answer) => answer.skipped).length;
   const wrong = attempt.answers.length - correct;
+
+  function repeatMistakes() {
+    if (!quiz || wrong === 0) {
+      return;
+    }
+
+    const currentSettings = loadSettings(quiz);
+    const nextSettings = {
+      ...currentSettings,
+      mode: {
+        ...currentSettings.mode,
+        type: "mistakes" as TestMode,
+      },
+      questions: {
+        ...currentSettings.questions,
+        questionSelection: "mistakes" as const,
+        questionCount: "all" as const,
+      },
+    };
+
+    saveSettings(nextSettings);
+    clearAttempt();
+    router.push("/test");
+  }
 
   return (
     <AppShell>
@@ -1800,31 +2085,41 @@ export function ResultsPage() {
               <Sparkles className="size-9" />
             </motion.div>
             <div className="text-center">
-              <p className="text-sm font-medium uppercase tracking-[0.18em] text-emerald-700">Результат</p>
+              <p className="text-sm font-medium uppercase tracking-[0.18em] text-emerald-700">Р РµР·СѓР»СЊС‚Р°С‚</p>
               <h1 className="mt-4 text-7xl font-semibold tracking-tight text-slate-950">{attempt.score}%</h1>
               <p className="mx-auto mt-5 max-w-xl text-lg leading-8 text-slate-600">
-                {correct} правильных из {attempt.answers.length}. Ошибки сохранены, чтобы следующая сессия была короче и точнее.
+                {correct} РїСЂР°РІРёР»СЊРЅС‹С… РёР· {attempt.answers.length}. РћС€РёР±РєРё СЃРѕС…СЂР°РЅРµРЅС‹, С‡С‚РѕР±С‹ СЃР»РµРґСѓСЋС‰Р°СЏ СЃРµСЃСЃРёСЏ Р±С‹Р»Р° РєРѕСЂРѕС‡Рµ Рё С‚РѕС‡РЅРµРµ.
               </p>
             </div>
             <div className="mx-auto mt-9 grid max-w-2xl gap-4 sm:grid-cols-3">
-              <SummaryNumber label="ошибок" value={wrong} />
-              <SummaryNumber label="пропущено" value={skipped} />
-              <SummaryNumber label="время" value={formatTime(attempt.timeSpentSeconds)} />
+              <SummaryNumber label="РѕС€РёР±РѕРє" value={wrong} />
+              <SummaryNumber label="РїСЂРѕРїСѓС‰РµРЅРѕ" value={skipped} />
+              <SummaryNumber label="РІСЂРµРјСЏ" value={formatTime(attempt.timeSpentSeconds)} />
             </div>
             <div className="mt-10 flex flex-col justify-center gap-3 sm:flex-row">
-              <Link className="inline-flex h-12 items-center justify-center rounded-full bg-emerald-500 px-6 font-semibold text-white hover:bg-emerald-600" href="/test">
-                Повторить ошибки
-              </Link>
+              {wrong > 0 ? (
+                <button
+                  className="inline-flex h-12 items-center justify-center rounded-full bg-emerald-500 px-6 font-semibold text-white hover:bg-emerald-600"
+                  onClick={repeatMistakes}
+                  type="button"
+                >
+                  Повторить {wrong} ошибок
+                </button>
+              ) : (
+                <div className="inline-flex h-12 items-center justify-center rounded-full bg-emerald-50 px-6 font-semibold text-emerald-700">
+                  Ошибок нет
+                </div>
+              )}
               <Link className="inline-flex h-12 items-center justify-center rounded-full border border-slate-200 px-6 font-semibold text-slate-900 hover:bg-slate-50" href="/settings">
-                Пройти заново
+                РџСЂРѕР№С‚Рё Р·Р°РЅРѕРІРѕ
               </Link>
               <Link className="inline-flex h-12 items-center justify-center rounded-full px-6 font-semibold text-slate-500 hover:bg-slate-50" href="/dashboard">
-                В кабинет
+                Р’ РєР°Р±РёРЅРµС‚
               </Link>
             </div>
           </QuietPanel>
           <p className="mt-6 text-center text-sm text-slate-500">
-            Лучший результат: {progress?.bestScore ?? attempt.score}%.
+            Р›СѓС‡С€РёР№ СЂРµР·СѓР»СЊС‚Р°С‚: {progress?.bestScore ?? attempt.score}%.
           </p>
         </motion.div>
       </PageFrame>
@@ -1873,7 +2168,7 @@ export function DashboardPage() {
   }, []);
 
   if (!ready) {
-    return <LoadingState title="Открываем кабинет" />;
+    return <LoadingState title="РћС‚РєСЂС‹РІР°РµРј РєР°Р±РёРЅРµС‚" />;
   }
 
   if (cloudTests?.length) {
@@ -1893,26 +2188,26 @@ export function DashboardPage() {
           <motion.div {...pageMotion} className="mx-auto flex max-w-6xl flex-col gap-10">
             <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
               <PageTitle
-                description="Продолжите тренировку или загрузите новый файл. Здесь только реальные данные из вашего аккаунта."
-                title="С возвращением"
+                description="РџСЂРѕРґРѕР»Р¶РёС‚Рµ С‚СЂРµРЅРёСЂРѕРІРєСѓ РёР»Рё Р·Р°РіСЂСѓР·РёС‚Рµ РЅРѕРІС‹Р№ С„Р°Р№Р». Р—РґРµСЃСЊ С‚РѕР»СЊРєРѕ СЂРµР°Р»СЊРЅС‹Рµ РґР°РЅРЅС‹Рµ РёР· РІР°С€РµРіРѕ Р°РєРєР°СѓРЅС‚Р°."
+                title="РЎ РІРѕР·РІСЂР°С‰РµРЅРёРµРј"
               />
               <Link className="inline-flex h-12 items-center justify-center rounded-full bg-emerald-500 px-6 font-semibold text-white hover:bg-emerald-600" href="/upload">
-                Загрузить тест
+                Р—Р°РіСЂСѓР·РёС‚СЊ С‚РµСЃС‚
               </Link>
             </div>
             <div className="grid gap-3 md:grid-cols-4">
-              <DashboardMetric label="Мои тренажёры" value={cloudTests.length} />
-              <DashboardMetric label="Последний прогресс" value={`${averageProgress}%`} />
-              <DashboardMetric label="Ошибки для повторения" value={totalWrong || "нет"} tone="coral" />
-              <DashboardMetric label="Лучший результат" value={bestScore ? `${Math.round(bestScore)}%` : "пока нет"} />
+              <DashboardMetric label="РњРѕРё С‚СЂРµРЅР°Р¶С‘СЂС‹" value={cloudTests.length} />
+              <DashboardMetric label="РџРѕСЃР»РµРґРЅРёР№ РїСЂРѕРіСЂРµСЃСЃ" value={`${averageProgress}%`} />
+              <DashboardMetric label="РћС€РёР±РєРё РґР»СЏ РїРѕРІС‚РѕСЂРµРЅРёСЏ" value={totalWrong || "РЅРµС‚"} tone="coral" />
+              <DashboardMetric label="Р›СѓС‡С€РёР№ СЂРµР·СѓР»СЊС‚Р°С‚" value={bestScore ? `${Math.round(bestScore)}%` : "РїРѕРєР° РЅРµС‚"} />
             </div>
             <QuietPanel className="p-7 sm:p-8">
               <div className="flex flex-col justify-between gap-4 md:flex-row md:items-end">
                 <div>
-                  <h2 className="text-3xl font-semibold tracking-tight text-slate-950">Мои тренажёры</h2>
+                  <h2 className="text-3xl font-semibold tracking-tight text-slate-950">РњРѕРё С‚СЂРµРЅР°Р¶С‘СЂС‹</h2>
                   <p className="mt-2 text-base text-slate-500">
-                    {totalAttempts ? `Всего попыток: ${totalAttempts}` : "Попытки появятся после первой тренировки."}
-                    {lastAttempt?.lastAttemptAt ? ` Последняя: ${formatDashboardDate(lastAttempt.lastAttemptAt)}.` : ""}
+                    {totalAttempts ? `Р’СЃРµРіРѕ РїРѕРїС‹С‚РѕРє: ${totalAttempts}` : "РџРѕРїС‹С‚РєРё РїРѕСЏРІСЏС‚СЃСЏ РїРѕСЃР»Рµ РїРµСЂРІРѕР№ С‚СЂРµРЅРёСЂРѕРІРєРё."}
+                    {lastAttempt?.lastAttemptAt ? ` РџРѕСЃР»РµРґРЅСЏСЏ: ${formatDashboardDate(lastAttempt.lastAttemptAt)}.` : ""}
                   </p>
                 </div>
               </div>
@@ -1927,7 +2222,7 @@ export function DashboardPage() {
                         </span>
                       </div>
                       <p className="mt-2 text-base text-slate-500">
-                        {test.questionCount} вопросов · создан {formatDashboardDate(test.createdAt ?? test.updatedAt)}
+                        {test.questionCount} РІРѕРїСЂРѕСЃРѕРІ В· СЃРѕР·РґР°РЅ {formatDashboardDate(test.createdAt ?? test.updatedAt)}
                       </p>
                       <div className="mt-5 flex max-w-xl items-center gap-4">
                         <FlowProgress className="flex-1" value={test.progressPercent} />
@@ -1936,16 +2231,16 @@ export function DashboardPage() {
                         </span>
                       </div>
                       <p className="mt-3 text-sm text-slate-500">
-                        Лучший результат: {test.bestScorePercent ? `${Math.round(test.bestScorePercent)}%` : "пока нет"}
-                        {test.lastAttemptScore ? ` · последняя попытка ${Math.round(test.lastAttemptScore)}%` : ""}
+                        Р›СѓС‡С€РёР№ СЂРµР·СѓР»СЊС‚Р°С‚: {test.bestScorePercent ? `${Math.round(test.bestScorePercent)}%` : "РїРѕРєР° РЅРµС‚"}
+                        {test.lastAttemptScore ? ` В· РїРѕСЃР»РµРґРЅСЏСЏ РїРѕРїС‹С‚РєР° ${Math.round(test.lastAttemptScore)}%` : ""}
                       </p>
                     </div>
                     <div className="flex flex-col gap-3">
                       <Link className="inline-flex h-11 items-center justify-center rounded-full bg-slate-950 px-5 font-medium text-white hover:bg-slate-800" href={`/tests/${test.id}`}>
-                        Продолжить
+                        РџСЂРѕРґРѕР»Р¶РёС‚СЊ
                       </Link>
                       <Link className="inline-flex h-11 items-center justify-center rounded-full border border-slate-200 px-5 font-medium text-slate-700 hover:bg-slate-50" href={`/tests/${test.id}`}>
-                        Настроить
+                        РќР°СЃС‚СЂРѕРёС‚СЊ
                       </Link>
                     </div>
                   </div>
@@ -1953,7 +2248,7 @@ export function DashboardPage() {
               </div>
             </QuietPanel>
             {totalWrong === 0 ? (
-              <p className="text-center text-sm text-slate-500">Пока ошибок нет. Отличный старт.</p>
+              <p className="text-center text-sm text-slate-500">РџРѕРєР° РѕС€РёР±РѕРє РЅРµС‚. РћС‚Р»РёС‡РЅС‹Р№ СЃС‚Р°СЂС‚.</p>
             ) : null}
           </motion.div>
         </PageFrame>
@@ -1964,10 +2259,10 @@ export function DashboardPage() {
   if (cloudChecked && cloudTests?.length === 0) {
     return (
       <EmptyState
-        action="Загрузить тест"
-        description="Загрузите QST, TXT или ZIP файл, чтобы создать первый интерактивный тест."
+        action="Р—Р°РіСЂСѓР·РёС‚СЊ С‚РµСЃС‚"
+        description="Р—Р°РіСЂСѓР·РёС‚Рµ QST, TXT РёР»Рё ZIP С„Р°Р№Р», С‡С‚РѕР±С‹ СЃРѕР·РґР°С‚СЊ РїРµСЂРІС‹Р№ РёРЅС‚РµСЂР°РєС‚РёРІРЅС‹Р№ С‚РµСЃС‚."
         href="/upload"
-        title="Добро пожаловать в Trainova"
+        title="Р”РѕР±СЂРѕ РїРѕР¶Р°Р»РѕРІР°С‚СЊ РІ Trainova"
       />
     );
   }
@@ -1975,9 +2270,9 @@ export function DashboardPage() {
   if (!quiz) {
     return (
       <EmptyState
-        title="У вас пока нет тренажёров"
-        description="Загрузите первый файл, чтобы начать."
-        action="Загрузить тест"
+        title="РЈ РІР°СЃ РїРѕРєР° РЅРµС‚ С‚СЂРµРЅР°Р¶С‘СЂРѕРІ"
+        description="Р—Р°РіСЂСѓР·РёС‚Рµ РїРµСЂРІС‹Р№ С„Р°Р№Р», С‡С‚РѕР±С‹ РЅР°С‡Р°С‚СЊ."
+        action="Р—Р°РіСЂСѓР·РёС‚СЊ С‚РµСЃС‚"
         href="/upload"
       />
     );
@@ -1991,11 +2286,11 @@ export function DashboardPage() {
         <motion.div {...pageMotion} className="mx-auto flex max-w-5xl flex-col gap-10">
           <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
             <PageTitle
-              description="Этот тест сохранён только на устройстве. После входа его можно перенести в аккаунт."
-              title="Локальная тренировка"
+              description="Р­С‚РѕС‚ С‚РµСЃС‚ СЃРѕС…СЂР°РЅС‘РЅ С‚РѕР»СЊРєРѕ РЅР° СѓСЃС‚СЂРѕР№СЃС‚РІРµ. РџРѕСЃР»Рµ РІС…РѕРґР° РµРіРѕ РјРѕР¶РЅРѕ РїРµСЂРµРЅРµСЃС‚Рё РІ Р°РєРєР°СѓРЅС‚."
+              title="Р›РѕРєР°Р»СЊРЅР°СЏ С‚СЂРµРЅРёСЂРѕРІРєР°"
             />
             <Link className="inline-flex h-12 items-center justify-center rounded-full bg-emerald-500 px-6 font-semibold text-white hover:bg-emerald-600" href="/test">
-              Продолжить
+              РџСЂРѕРґРѕР»Р¶РёС‚СЊ
             </Link>
           </div>
 
@@ -2008,17 +2303,17 @@ export function DashboardPage() {
                 <div>
                   <h2 className="text-3xl font-semibold tracking-tight text-slate-950">{quiz.title}</h2>
                   <p className="mt-2 text-base text-slate-500">
-                    {quiz.questions.length} вопросов · последний результат {progress?.bestScore ?? 0}%
+                    {quiz.questions.length} РІРѕРїСЂРѕСЃРѕРІ В· РїРѕСЃР»РµРґРЅРёР№ СЂРµР·СѓР»СЊС‚Р°С‚ {progress?.bestScore ?? 0}%
                   </p>
                   <FlowProgress className="mt-6 max-w-md" value={completion} />
                 </div>
               </div>
               <div className="flex flex-col gap-3">
                 <Link className="inline-flex h-11 items-center justify-center rounded-full bg-slate-950 px-5 font-medium text-white" href="/settings">
-                  Настроить сессию
+                  РќР°СЃС‚СЂРѕРёС‚СЊ СЃРµСЃСЃРёСЋ
                 </Link>
                 <Link className="inline-flex h-11 items-center justify-center rounded-full px-5 font-medium text-slate-500 hover:bg-slate-50" href="/editor">
-                  Редактор
+                  Р РµРґР°РєС‚РѕСЂ
                 </Link>
               </div>
             </div>
@@ -2070,7 +2365,7 @@ export function ProgressPage() {
   }, []);
 
   if (!ready) {
-    return <LoadingState title="Собираем прогресс" />;
+    return <LoadingState title="РЎРѕР±РёСЂР°РµРј РїСЂРѕРіСЂРµСЃСЃ" />;
   }
 
   if (cloudTests?.length) {
@@ -2084,17 +2379,17 @@ export function ProgressPage() {
         <PageFrame>
           <motion.div {...pageMotion} className="mx-auto flex max-w-6xl flex-col gap-10">
             <PageTitle
-              description="Реальные данные из аккаунта: прогресс, попытки и вопросы, которые стоит повторить."
-              title="Ваш прогресс"
+              description="Р РµР°Р»СЊРЅС‹Рµ РґР°РЅРЅС‹Рµ РёР· Р°РєРєР°СѓРЅС‚Р°: РїСЂРѕРіСЂРµСЃСЃ, РїРѕРїС‹С‚РєРё Рё РІРѕРїСЂРѕСЃС‹, РєРѕС‚РѕСЂС‹Рµ СЃС‚РѕРёС‚ РїРѕРІС‚РѕСЂРёС‚СЊ."
+              title="Р’Р°С€ РїСЂРѕРіСЂРµСЃСЃ"
             />
             <div className="grid gap-3 md:grid-cols-4">
-              <DashboardMetric label="Вопросов решено" value={solved} />
-              <DashboardMetric label="Лучший результат" value={best ? `${Math.round(best)}%` : "пока нет"} />
-              <DashboardMetric label="Попыток" value={attempts || "нет"} />
-              <DashboardMetric label="Ошибки" value={wrong || "нет"} tone="coral" />
+              <DashboardMetric label="Р’РѕРїСЂРѕСЃРѕРІ СЂРµС€РµРЅРѕ" value={solved} />
+              <DashboardMetric label="Р›СѓС‡С€РёР№ СЂРµР·СѓР»СЊС‚Р°С‚" value={best ? `${Math.round(best)}%` : "РїРѕРєР° РЅРµС‚"} />
+              <DashboardMetric label="РџРѕРїС‹С‚РѕРє" value={attempts || "РЅРµС‚"} />
+              <DashboardMetric label="РћС€РёР±РєРё" value={wrong || "РЅРµС‚"} tone="coral" />
             </div>
             <QuietPanel className="p-7 sm:p-8">
-              <h2 className="text-3xl font-semibold tracking-tight text-slate-950">Тренажёры</h2>
+              <h2 className="text-3xl font-semibold tracking-tight text-slate-950">РўСЂРµРЅР°Р¶С‘СЂС‹</h2>
               <div className="mt-7 flex flex-col divide-y divide-slate-900/[0.06]">
                 {cloudTests.map((test) => (
                   <Link
@@ -2105,15 +2400,15 @@ export function ProgressPage() {
                     <div>
                       <p className="text-xl font-semibold tracking-tight text-slate-950">{test.title}</p>
                       <p className="mt-2 text-sm text-slate-500">
-                        {test.attemptCount || 0} попыток · {test.wrongCount || 0} ошибок для повторения
+                        {test.attemptCount || 0} РїРѕРїС‹С‚РѕРє В· {test.wrongCount || 0} РѕС€РёР±РѕРє РґР»СЏ РїРѕРІС‚РѕСЂРµРЅРёСЏ
                       </p>
                       <FlowProgress className="mt-4 max-w-lg" value={test.progressPercent} />
                     </div>
                     <div className="text-left md:text-right">
                       <p className="text-2xl font-semibold text-slate-950">
-                        {test.bestScorePercent ? `${Math.round(test.bestScorePercent)}%` : "—"}
+                        {test.bestScorePercent ? `${Math.round(test.bestScorePercent)}%` : "вЂ”"}
                       </p>
-                      <p className="mt-1 text-sm text-slate-500">лучший результат</p>
+                      <p className="mt-1 text-sm text-slate-500">Р»СѓС‡С€РёР№ СЂРµР·СѓР»СЊС‚Р°С‚</p>
                     </div>
                   </Link>
                 ))}
@@ -2121,9 +2416,9 @@ export function ProgressPage() {
             </QuietPanel>
             {wrong === 0 ? (
               <QuietPanel className="p-7 text-center">
-                <h2 className="text-2xl font-semibold tracking-tight text-slate-950">Пока ошибок нет. Отличный старт.</h2>
+                <h2 className="text-2xl font-semibold tracking-tight text-slate-950">РџРѕРєР° РѕС€РёР±РѕРє РЅРµС‚. РћС‚Р»РёС‡РЅС‹Р№ СЃС‚Р°СЂС‚.</h2>
                 <p className="mx-auto mt-2 max-w-lg text-base leading-7 text-slate-500">
-                  Когда появятся вопросы для повторения, Trainova соберёт их здесь в спокойный список.
+                  РљРѕРіРґР° РїРѕСЏРІСЏС‚СЃСЏ РІРѕРїСЂРѕСЃС‹ РґР»СЏ РїРѕРІС‚РѕСЂРµРЅРёСЏ, Trainova СЃРѕР±РµСЂС‘С‚ РёС… Р·РґРµСЃСЊ РІ СЃРїРѕРєРѕР№РЅС‹Р№ СЃРїРёСЃРѕРє.
                 </p>
               </QuietPanel>
             ) : null}
@@ -2136,9 +2431,9 @@ export function ProgressPage() {
   if (cloudChecked && cloudTests?.length === 0) {
     return (
       <EmptyState
-        title="Прогресс появится после первой тренировки"
-        description="Загрузите тест, пройдите первую сессию, и здесь появятся реальные попытки и ошибки."
-        action="Загрузить тест"
+        title="РџСЂРѕРіСЂРµСЃСЃ РїРѕСЏРІРёС‚СЃСЏ РїРѕСЃР»Рµ РїРµСЂРІРѕР№ С‚СЂРµРЅРёСЂРѕРІРєРё"
+        description="Р—Р°РіСЂСѓР·РёС‚Рµ С‚РµСЃС‚, РїСЂРѕР№РґРёС‚Рµ РїРµСЂРІСѓСЋ СЃРµСЃСЃРёСЋ, Рё Р·РґРµСЃСЊ РїРѕСЏРІСЏС‚СЃСЏ СЂРµР°Р»СЊРЅС‹Рµ РїРѕРїС‹С‚РєРё Рё РѕС€РёР±РєРё."
+        action="Р—Р°РіСЂСѓР·РёС‚СЊ С‚РµСЃС‚"
         href="/upload"
       />
     );
@@ -2147,9 +2442,9 @@ export function ProgressPage() {
   if (!quiz) {
     return (
       <EmptyState
-        title="Прогресс появится после первой тренировки"
-        description="Здесь не будет фейковых графиков: только ваши реальные тренировки."
-        action="Загрузить тест"
+        title="РџСЂРѕРіСЂРµСЃСЃ РїРѕСЏРІРёС‚СЃСЏ РїРѕСЃР»Рµ РїРµСЂРІРѕР№ С‚СЂРµРЅРёСЂРѕРІРєРё"
+        description="Р—РґРµСЃСЊ РЅРµ Р±СѓРґРµС‚ С„РµР№РєРѕРІС‹С… РіСЂР°С„РёРєРѕРІ: С‚РѕР»СЊРєРѕ РІР°С€Рё СЂРµР°Р»СЊРЅС‹Рµ С‚СЂРµРЅРёСЂРѕРІРєРё."
+        action="Р—Р°РіСЂСѓР·РёС‚СЊ С‚РµСЃС‚"
         href="/upload"
       />
     );
@@ -2167,16 +2462,16 @@ export function ProgressPage() {
           <div className="grid gap-10 lg:grid-cols-[1fr_360px] lg:items-start">
             <div>
               <PageTitle
-                description="Спокойный прогресс без лишней аналитики: streak, цель дня и вопросы, которые стоит повторить."
-                title="Сегодняшняя тренировка"
+                description="РЎРїРѕРєРѕР№РЅС‹Р№ РїСЂРѕРіСЂРµСЃСЃ Р±РµР· Р»РёС€РЅРµР№ Р°РЅР°Р»РёС‚РёРєРё: streak, С†РµР»СЊ РґРЅСЏ Рё РІРѕРїСЂРѕСЃС‹, РєРѕС‚РѕСЂС‹Рµ СЃС‚РѕРёС‚ РїРѕРІС‚РѕСЂРёС‚СЊ."
+                title="РЎРµРіРѕРґРЅСЏС€РЅСЏСЏ С‚СЂРµРЅРёСЂРѕРІРєР°"
               />
               <div className="mt-10">
                 <QuietPanel className="p-8">
                   <div className="flex items-center justify-between gap-6">
                     <div>
-                      <p className="text-sm font-medium uppercase tracking-[0.18em] text-emerald-700">Цель дня</p>
+                      <p className="text-sm font-medium uppercase tracking-[0.18em] text-emerald-700">Р¦РµР»СЊ РґРЅСЏ</p>
                       <h2 className="mt-4 text-4xl font-semibold tracking-tight text-slate-950">
-                        {progress?.solvedToday ?? 0} вопросов сегодня
+                        {progress?.solvedToday ?? 0} РІРѕРїСЂРѕСЃРѕРІ СЃРµРіРѕРґРЅСЏ
                       </h2>
                     </div>
                     <div className="flex size-20 items-center justify-center rounded-full bg-yellow-50 text-2xl font-semibold text-yellow-600">
@@ -2189,7 +2484,7 @@ export function ProgressPage() {
             </div>
 
             <QuietPanel className="p-6">
-              <h2 className="text-xl font-semibold tracking-tight text-slate-950">Повторить слабые вопросы</h2>
+              <h2 className="text-xl font-semibold tracking-tight text-slate-950">РџРѕРІС‚РѕСЂРёС‚СЊ СЃР»Р°Р±С‹Рµ РІРѕРїСЂРѕСЃС‹</h2>
               {weakQuestions.length ? (
                 <>
                   <div className="mt-6 flex flex-col gap-4">
@@ -2200,11 +2495,11 @@ export function ProgressPage() {
                     ))}
                   </div>
                   <Link className="mt-7 inline-flex h-11 w-full items-center justify-center rounded-full bg-emerald-500 font-semibold text-white hover:bg-emerald-600" href="/test">
-                    Тренировать
+                    РўСЂРµРЅРёСЂРѕРІР°С‚СЊ
                   </Link>
                 </>
               ) : (
-                <p className="mt-6 text-sm leading-6 text-slate-500">Пока ошибок нет. Отличный старт.</p>
+                <p className="mt-6 text-sm leading-6 text-slate-500">РџРѕРєР° РѕС€РёР±РѕРє РЅРµС‚. РћС‚Р»РёС‡РЅС‹Р№ СЃС‚Р°СЂС‚.</p>
               )}
             </QuietPanel>
           </div>
@@ -2235,7 +2530,7 @@ function DashboardMetric({
 
 function formatDashboardDate(value?: string | null) {
   if (!value) {
-    return "пока нет";
+    return "РїРѕРєР° РЅРµС‚";
   }
 
   return new Intl.DateTimeFormat("ru-RU", {
@@ -2297,8 +2592,7 @@ function prepareQuestions(quiz: QuizDocument, settings: TestSettings) {
 
   if (settings.mode.type === "mistakes" || settings.questions.questionSelection === "mistakes") {
     const wrong = new Set(progress?.wrongQuestionIds ?? []);
-    const mistakes = pool.filter((question) => wrong.has(question.id));
-    pool = mistakes.length ? mistakes : pool;
+    pool = pool.filter((question) => wrong.has(question.id));
   }
 
   if (settings.questions.questionSelection === "favorites") {
@@ -2358,7 +2652,7 @@ function createInitialTestState() {
 }
 
 function shuffleAnswers(answers: QuizAnswer[], protectSpecial: boolean) {
-  const specialPattern = /^(все|нет|ни один|всё|all|none)/i;
+  const specialPattern = /^(РІСЃРµ|РЅРµС‚|РЅРё РѕРґРёРЅ|РІСЃС‘|all|none)/i;
   const special = protectSpecial ? answers.filter((answer) => specialPattern.test(answer.text.trim())) : [];
   const normal = protectSpecial ? answers.filter((answer) => !specialPattern.test(answer.text.trim())) : answers;
 
@@ -2383,14 +2677,14 @@ function listOrZero(items: number[]) {
 
 function issueCountText(count: number) {
   if (count % 10 === 1 && count % 100 !== 11) {
-    return `${count} момент`;
+    return `${count} РјРѕРјРµРЅС‚`;
   }
 
   if ([2, 3, 4].includes(count % 10) && ![12, 13, 14].includes(count % 100)) {
-    return `${count} момента`;
+    return `${count} РјРѕРјРµРЅС‚Р°`;
   }
 
-  return `${count} моментов`;
+  return `${count} РјРѕРјРµРЅС‚РѕРІ`;
 }
 
 function formatTime(seconds: number) {
@@ -2401,64 +2695,64 @@ function formatTime(seconds: number) {
 
 function selectionLabel(value: TestSettings["questions"]["questionSelection"]) {
   return {
-    all: "Все вопросы",
-    random: "Случайные",
-    unseen: "Только непройденные",
-    mistakes: "Только ошибки",
-    favorites: "Избранные",
-    difficult: "Сложные",
+    all: "Р’СЃРµ РІРѕРїСЂРѕСЃС‹",
+    random: "РЎР»СѓС‡Р°Р№РЅС‹Рµ",
+    unseen: "РўРѕР»СЊРєРѕ РЅРµРїСЂРѕР№РґРµРЅРЅС‹Рµ",
+    mistakes: "РўРѕР»СЊРєРѕ РѕС€РёР±РєРё",
+    favorites: "РР·Р±СЂР°РЅРЅС‹Рµ",
+    difficult: "РЎР»РѕР¶РЅС‹Рµ",
   }[value];
 }
 
 function orderLabel(value: TestSettings["questions"]["questionOrder"]) {
   return {
-    file: "Как в файле",
-    random: "Случайный",
-    new_first: "Сначала новые",
-    difficult_first: "Сначала сложные",
-    mistakes_first: "Сначала ошибки",
+    file: "РљР°Рє РІ С„Р°Р№Р»Рµ",
+    random: "РЎР»СѓС‡Р°Р№РЅС‹Р№",
+    new_first: "РЎРЅР°С‡Р°Р»Р° РЅРѕРІС‹Рµ",
+    difficult_first: "РЎРЅР°С‡Р°Р»Р° СЃР»РѕР¶РЅС‹Рµ",
+    mistakes_first: "РЎРЅР°С‡Р°Р»Р° РѕС€РёР±РєРё",
   }[value];
 }
 
 function answerOrderLabel(value: TestSettings["answers"]["answerOrder"]) {
   return {
-    file: "Как в файле",
-    random: "Случайный",
-    safe_random: "Случайный с защитой специальных вариантов",
+    file: "РљР°Рє РІ С„Р°Р№Р»Рµ",
+    random: "РЎР»СѓС‡Р°Р№РЅС‹Р№",
+    safe_random: "РЎР»СѓС‡Р°Р№РЅС‹Р№ СЃ Р·Р°С‰РёС‚РѕР№ СЃРїРµС†РёР°Р»СЊРЅС‹С… РІР°СЂРёР°РЅС‚РѕРІ",
   }[value];
 }
 
 function reviewLabel(value: TestSettings["review"]["showCorrectAnswer"]) {
   return {
-    immediately: "Сразу",
-    after_each_question: "После вопроса",
-    end: "В конце",
-    never: "Никогда",
+    immediately: "РЎСЂР°Р·Сѓ",
+    after_each_question: "РџРѕСЃР»Рµ РІРѕРїСЂРѕСЃР°",
+    end: "Р’ РєРѕРЅС†Рµ",
+    never: "РќРёРєРѕРіРґР°",
   }[value];
 }
 
 function explanationLabel(value: TestSettings["review"]["showExplanation"]) {
   return {
-    always: "Всегда",
-    after_wrong_answer: "После ошибки",
-    never: "Не показывать",
+    always: "Р’СЃРµРіРґР°",
+    after_wrong_answer: "РџРѕСЃР»Рµ РѕС€РёР±РєРё",
+    never: "РќРµ РїРѕРєР°Р·С‹РІР°С‚СЊ",
   }[value];
 }
 
 function accessLabel(value: TestSettings["access"]["visibility"]) {
   return {
-    private: "Только я",
-    link: "По ссылке",
-    public: "Публичный",
-    password: "По паролю",
+    private: "РўРѕР»СЊРєРѕ СЏ",
+    link: "РџРѕ СЃСЃС‹Р»РєРµ",
+    public: "РџСѓР±Р»РёС‡РЅС‹Р№",
+    password: "РџРѕ РїР°СЂРѕР»СЋ",
   }[value];
 }
 
 function appearanceLabel(value: TestSettings["appearance"]["theme"]) {
   return {
-    light: "Светлая",
-    dark: "Тёмная",
-    green: "Зелёная",
-    minimal: "Минималистичная",
+    light: "РЎРІРµС‚Р»Р°СЏ",
+    dark: "РўС‘РјРЅР°СЏ",
+    green: "Р—РµР»С‘РЅР°СЏ",
+    minimal: "РњРёРЅРёРјР°Р»РёСЃС‚РёС‡РЅР°СЏ",
   }[value];
 }

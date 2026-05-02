@@ -10,6 +10,8 @@ import { createSupabaseBrowserClient, hasSupabaseEnv } from "@/lib/supabase/clie
 import { AppShell, PageFrame, QuietPanel } from "./shell";
 import { TrainovaLogo } from "./logo";
 
+const TRAINOVA_ORIGIN = "https://trainova.vercel.app";
+
 export function AuthPage({ mode = "login" }: { mode?: "login" | "signup" }) {
   const searchParams = useSearchParams();
   const next = normalizeNextPath(searchParams.get("next"));
@@ -21,8 +23,7 @@ export function AuthPage({ mode = "login" }: { mode?: "login" | "signup" }) {
   const configured = hasSupabaseEnv();
 
   const redirectTo = useMemo(() => {
-    const siteUrl =
-      typeof window !== "undefined" ? window.location.origin : process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+    const siteUrl = getAuthSiteUrl();
     const callback = new URL("/auth/callback", siteUrl);
     callback.searchParams.set("next", next);
     return callback.toString();
@@ -205,6 +206,28 @@ function normalizeNextPath(next: string | null) {
   }
 
   return next;
+}
+
+function getAuthSiteUrl() {
+  const configuredSiteUrl = process.env.NEXT_PUBLIC_SITE_URL;
+  const browserOrigin = typeof window !== "undefined" ? window.location.origin : "";
+  const fallback = browserOrigin.includes("localhost") ? browserOrigin : TRAINOVA_ORIGIN;
+
+  if (!configuredSiteUrl) {
+    return fallback || "http://localhost:3000";
+  }
+
+  try {
+    const origin = new URL(configuredSiteUrl).origin;
+    return isNonCanonicalVercelOrigin(origin) ? fallback : origin;
+  } catch {
+    return fallback || "http://localhost:3000";
+  }
+}
+
+function isNonCanonicalVercelOrigin(origin: string) {
+  const hostname = new URL(origin).hostname.toLowerCase();
+  return hostname !== "trainova.vercel.app" && hostname.endsWith(".vercel.app");
 }
 
 function AuthButton({

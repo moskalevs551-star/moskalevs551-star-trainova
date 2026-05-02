@@ -29,7 +29,7 @@ export const DEFAULT_SETTINGS: TestSettings = {
     enabled: false,
     type: "whole_test",
     minutes: null,
-    secondsPerQuestion: null,
+    secondsPerQuestion: 15,
     onExpire: "submit_test",
   },
   attempts: {

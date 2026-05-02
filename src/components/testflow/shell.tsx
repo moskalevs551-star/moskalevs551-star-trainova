@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ArrowRight, LogOut, Settings, UserRound } from "lucide-react";
+import { ArrowRight, LogOut, Moon, Settings, Sun, UserRound } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { saveLocalQuizToAccount } from "@/lib/quiz/cloud";
@@ -26,6 +26,9 @@ type HeaderUser = {
 export function AppShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const [user, setUser] = useState<HeaderUser | null>(null);
+  const [theme, setTheme] = useState<"light" | "dark">(() =>
+    typeof document !== "undefined" && document.documentElement.classList.contains("dark") ? "dark" : "light"
+  );
 
   useEffect(() => {
     let cancelled = false;
@@ -53,9 +56,18 @@ export function AppShell({ children }: { children: React.ReactNode }) {
     };
   }, []);
 
+  function toggleTheme() {
+    setTheme((current) => {
+      const next = current === "dark" ? "light" : "dark";
+      document.documentElement.classList.toggle("dark", next === "dark");
+      window.localStorage.setItem("trainova.theme", next);
+      return next;
+    });
+  }
+
   return (
-    <div className="min-h-screen bg-[linear-gradient(180deg,#FFFDF8_0%,#FAFAF7_48%,#F8FAFC_100%)] text-slate-950">
-      <header className="sticky top-0 z-30 border-b border-slate-900/[0.055] bg-[#FFFDF8]/86 backdrop-blur-xl">
+    <div className="min-h-screen bg-[linear-gradient(180deg,#FFFDF8_0%,#FAFAF7_48%,#F8FAFC_100%)] text-slate-950 dark:bg-[linear-gradient(180deg,#0B1220_0%,#111827_52%,#0F172A_100%)] dark:text-slate-100">
+      <header className="sticky top-0 z-30 border-b border-slate-900/[0.055] bg-[#FFFDF8]/86 backdrop-blur-xl dark:border-white/[0.08] dark:bg-[#0B1220]/86">
         <div className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between px-5 sm:px-8">
           <BrandLink />
           <nav className="hidden items-center gap-7 text-sm text-slate-500 md:flex">
@@ -72,6 +84,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
               </Link>
             ))}
           </nav>
+          <ThemeToggle theme={theme} onToggle={toggleTheme} />
           {user ? (
             <div className="flex items-center gap-2">
               <Link
@@ -90,6 +103,21 @@ export function AppShell({ children }: { children: React.ReactNode }) {
       <main>{children}</main>
       <SaveLocalQuizPrompt user={user} />
     </div>
+  );
+}
+
+function ThemeToggle({ theme, onToggle }: { theme: "light" | "dark"; onToggle: () => void }) {
+  const isDark = theme === "dark";
+
+  return (
+    <button
+      aria-label={isDark ? "Включить светлую тему" : "Включить тёмную тему"}
+      className="flex size-10 shrink-0 items-center justify-center rounded-full border border-slate-900/[0.06] bg-white text-slate-700 shadow-sm transition hover:-translate-y-0.5 hover:border-emerald-200 dark:border-white/[0.1] dark:bg-white/[0.06] dark:text-slate-100 dark:hover:bg-white/[0.1]"
+      onClick={onToggle}
+      type="button"
+    >
+      {isDark ? <Sun className="size-4" /> : <Moon className="size-4" />}
+    </button>
   );
 }
 
