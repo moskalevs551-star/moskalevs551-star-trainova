@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useEffect, useRef, useState, useSyncExternalStore, type ChangeEvent } from "react";
 import Link from "next/link";
@@ -590,6 +590,7 @@ export function UploadPage() {
               id="trainova-file-upload"
               onChange={handleFileInputChange}
               ref={inputRef}
+              accept=".qst,.txt,.zip,text/plain,application/zip,application/x-zip-compressed"
               type="file"
             />
             <label
@@ -603,6 +604,9 @@ export function UploadPage() {
               </h2>
               <p className="mt-3 max-w-sm text-base leading-7 text-[#586380] dark:text-[#c7cce0]">
                 Поддерживаются .qst, .txt и .zip. На телефоне откройте «Файлы» или «Проводник».
+              </p>
+              <p className="mt-2 max-w-sm text-sm leading-6 text-[#586380] dark:text-[#c7cce0]">
+                Можно пройти без аккаунта. Войдите, когда захотите сохранить прогресс в облаке.
               </p>
               <span className="trainova-primary trainova-pill mt-6 inline-flex h-12 items-center justify-center px-6 text-sm font-bold sm:hidden">
                 Выбрать файл
