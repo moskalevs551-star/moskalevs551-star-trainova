@@ -1,0 +1,47 @@
+name: Import Trainova source
+
+on:
+  push:
+    branches:
+      - feature/import-trainova-source
+
+permissions:
+  contents: write
+
+jobs:
+  import-source:
+    runs-on: ubuntu-latest
+    env:
+      TARGET_BRANCH: feature/trainova-reference-redesign
+      BASE_BRANCH: feature/full-trainova-project
+      SOURCE_URL: https://trainova.vercel.app/trainova-source.zip
+    steps:
+      - name: Checkout trigger branch
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Prepare target branch
+        run: |
+          git fetch origin "$BASE_BRANCH"
+          git checkout -B "$TARGET_BRANCH" "origin/$BASE_BRANCH"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Download current Trainova source archive
+        run: |
+          curl -L "$SOURCE_URL" -o /tmp/trainova-source.zip
+          unzip -q /tmp/trainova-source.zip -d /tmp/trainova-source
+
+      - name: Replace source files
+        run: |
+          git rm -r --ignore-unmatch .
+          rsync -a /tmp/trainova-source/ ./
+          rm -f public/trainova-source.zip public/trainova-fix-source.tar.gz
+
+      - name: Commit and push redesign source
+        run: |
+          git add -A
+          git status --short
+          git commit -m "Redesign Trainova with reference design system" || echo "No source changes to commit"
+          git push origin "$TARGET_BRANCH" --force
