@@ -7,9 +7,17 @@ const config = {
   theme: {
     extend: {
       colors: {
-        "trainova-green": "#10B981",
-        "trainova-navy": "#0F172A",
-        "trainova-cobalt": "#4F46E5",
+        "trainova-violet": "#4255FF",
+        "trainova-night": "#423ED8",
+        "trainova-sky": "#98E3FF",
+        "trainova-pink": "#EEAAFF",
+        "trainova-orange": "#FFC38C",
+        "trainova-ink": "#282E3E",
+        "trainova-slate": "#586380",
+        "trainova-bg": "#F6F7FB",
+        "trainova-green": "#22C55E",
+        "trainova-navy": "#282E3E",
+        "trainova-cobalt": "#4255FF",
         "trainova-lavender": "#A78BFA",
         "trainova-coral": "#FF6B5A",
       },

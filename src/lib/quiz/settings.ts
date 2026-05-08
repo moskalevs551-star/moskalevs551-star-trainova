@@ -24,6 +24,7 @@ export const DEFAULT_SETTINGS: TestSettings = {
     type: "training",
     showHints: true,
     allowSkip: true,
+    allowBack: false,
   },
   timer: {
     enabled: false,

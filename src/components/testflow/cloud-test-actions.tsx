@@ -64,16 +64,11 @@ export function CloudTestActions({ testId, hasWrongQuestions }: Props) {
 
   return (
     <div className="flex flex-col gap-3">
-      <Button
-        className="h-11 rounded-full bg-emerald-500 px-5 font-semibold text-white hover:bg-emerald-600"
-        disabled={pending}
-        onClick={() => open("/test")}
-        type="button"
-      >
+      <Button className="trainova-primary trainova-pill h-11 px-5 font-bold" disabled={pending} onClick={() => open("/test")} type="button">
         {pending ? "Открываем..." : "Начать тренировку"}
       </Button>
       <Button
-        className="h-11 rounded-full border-slate-200 bg-white px-5 font-semibold text-slate-900 hover:bg-slate-50"
+        className="trainova-secondary trainova-pill h-11 px-5 font-bold"
         disabled={pending}
         onClick={() => open("/settings")}
         type="button"
@@ -83,7 +78,7 @@ export function CloudTestActions({ testId, hasWrongQuestions }: Props) {
       </Button>
       {hasWrongQuestions ? (
         <Button
-          className="h-11 rounded-full px-5 font-semibold text-[#E34D3D] hover:bg-[#FFE4E0]"
+          className="h-11 rounded-full px-5 font-bold text-[#d85d4e] hover:bg-[#ffc38c]/30"
           disabled={pending}
           onClick={() => open("/test", "mistakes")}
           type="button"

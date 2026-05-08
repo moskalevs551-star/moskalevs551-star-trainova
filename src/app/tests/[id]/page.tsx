@@ -48,12 +48,12 @@ export default async function Page({ params }: PageProps) {
     data: { user },
   } = await supabase.auth.getUser();
 
+  const { id } = await params;
+
   if (!user) {
-    const { id } = await params;
     redirect(`/login?next=${encodeURIComponent(`/tests/${id}`)}`);
   }
 
-  const { id } = await params;
   const { data: test } = await supabase
     .from("tests")
     .select("id,title,source_format,question_count,created_at,updated_at")
@@ -93,10 +93,7 @@ export default async function Page({ params }: PageProps) {
               description={`${test.question_count ?? 0} вопросов · ${String(test.source_format || "qst").toUpperCase()} · создан ${formatDate(test.created_at)}`}
               title={test.title}
             />
-            <Link
-              className="inline-flex h-12 items-center justify-center rounded-full border border-slate-200 px-6 font-semibold text-slate-700 hover:bg-white"
-              href="/dashboard"
-            >
+            <Link className="trainova-secondary trainova-pill inline-flex h-12 items-center justify-center px-6 font-bold" href="/dashboard">
               В кабинет
             </Link>
           </div>
@@ -108,13 +105,13 @@ export default async function Page({ params }: PageProps) {
                 <DetailStat label="Лучший результат" value={score(progress?.best_score_percent)} />
                 <DetailStat label="Ошибки" value={wrongCount || "нет"} tone="coral" />
               </div>
-              <div className="mt-8 h-2 overflow-hidden rounded-full bg-slate-100">
+              <div className="mt-8 h-2 overflow-hidden rounded-full bg-[#e6e9f2] dark:bg-white/[0.12]">
                 <div
-                  className="h-full rounded-full bg-[linear-gradient(90deg,#10B981_0%,#4F46E5_55%,#A78BFA_100%)]"
+                  className="h-full rounded-full bg-[linear-gradient(90deg,#4255ff_0%,#98e3ff_55%,#eeaaff_100%)]"
                   style={{ width: `${Math.min(100, Math.max(0, progressPercent))}%` }}
                 />
               </div>
-              <p className="mt-4 text-sm leading-6 text-slate-500">
+              <p className="mt-4 text-sm leading-6 text-[#586380] dark:text-[#c7cce0]">
                 {progress?.updated_at
                   ? `Обновлено ${formatDate(progress.updated_at)}.`
                   : "Прогресс появится после первой тренировки."}
@@ -127,27 +124,27 @@ export default async function Page({ params }: PageProps) {
           </div>
 
           <QuietPanel className="p-7 sm:p-8">
-            <h2 className="text-3xl font-semibold tracking-tight text-slate-950">Последние попытки</h2>
+            <h2 className="text-3xl font-bold tracking-normal text-[#282e3e] dark:text-white">Последние попытки</h2>
             {attempts?.length ? (
-              <div className="mt-6 flex flex-col divide-y divide-slate-900/[0.06]">
+              <div className="mt-6 flex flex-col divide-y divide-[#d9dde8] dark:divide-white/[0.12]">
                 {attempts.map((attempt) => (
                   <div className="grid gap-3 py-4 first:pt-0 last:pb-0 md:grid-cols-[1fr_120px] md:items-center" key={attempt.id}>
                     <div>
-                      <p className="font-medium text-slate-950">{formatDate(attempt.created_at)}</p>
-                      <p className="mt-1 text-sm text-slate-500">
+                      <p className="font-bold text-[#282e3e] dark:text-white">{formatDate(attempt.created_at)}</p>
+                      <p className="mt-1 text-sm text-[#586380] dark:text-[#c7cce0]">
                         правильно {attempt.correct_count}, ошибок {attempt.wrong_count}, пропущено {attempt.skipped_count}
                       </p>
                     </div>
-                    <p className="text-left text-2xl font-semibold text-slate-950 md:text-right">
+                    <p className="text-left text-2xl font-bold text-[#282e3e] dark:text-white md:text-right">
                       {score(attempt.score_percent)}
                     </p>
                   </div>
                 ))}
               </div>
             ) : (
-              <div className="mt-6 rounded-[1.5rem] bg-slate-50 p-6 text-center">
-                <p className="text-lg font-semibold text-slate-950">Вы ещё не проходили этот тест.</p>
-                <p className="mt-2 text-sm leading-6 text-slate-500">
+              <div className="mt-6 rounded-lg bg-[#f6f7fb] p-6 text-center dark:bg-white/[0.06]">
+                <p className="text-lg font-bold text-[#282e3e] dark:text-white">Вы ещё не проходили этот тест.</p>
+                <p className="mt-2 text-sm leading-6 text-[#586380] dark:text-[#c7cce0]">
                   Начните тренировку, и здесь появится история попыток.
                 </p>
               </div>
@@ -162,18 +159,18 @@ export default async function Page({ params }: PageProps) {
 function DetailStat({
   label,
   value,
-  tone = "green",
+  tone = "violet",
 }: {
   label: string;
   value: string | number;
-  tone?: "green" | "coral";
+  tone?: "violet" | "coral";
 }) {
   return (
-    <div className="rounded-[1.4rem] bg-slate-50 p-5">
-      <p className={tone === "coral" ? "text-sm font-medium text-[#E34D3D]" : "text-sm font-medium text-emerald-700"}>
+    <div className="rounded-lg bg-[#f6f7fb] p-5 dark:bg-white/[0.06]">
+      <p className={tone === "coral" ? "text-sm font-bold text-[#d85d4e] dark:text-[#ff9a8f]" : "text-sm font-bold text-[#4255ff] dark:text-[#aeb7ff]"}>
         {label}
       </p>
-      <p className="mt-3 text-3xl font-semibold tracking-tight text-slate-950">{value}</p>
+      <p className="mt-3 text-3xl font-bold tracking-normal text-[#282e3e] dark:text-white">{value}</p>
     </div>
   );
 }

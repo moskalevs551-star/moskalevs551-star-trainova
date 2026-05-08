@@ -26,7 +26,7 @@ const pageCopy = {
     title: "Помощь",
     description: "Быстрые ответы по загрузке, распознаванию и сохранению прогресса.",
     items: [
-      ["Как загрузить файл?", "Откройте импорт, перетащите .qst, .txt или .zip и проверьте найденные вопросы."],
+      ["Как загрузить файл?", "Откройте импорт, выберите .qst, .txt или .zip и проверьте найденные вопросы."],
       ["Что делать, если файл не распознался?", "Проверьте, что вопросы начинаются с ?, а ответы — с + или -."],
       ["Как сохранить прогресс?", "Войдите в аккаунт, после этого локальный тест можно сохранить в Supabase."],
     ],
@@ -53,20 +53,17 @@ export function InfoPage({ type }: { type: keyof typeof pageCopy }) {
           <QuietPanel className="p-6 sm:p-8">
             <div className="grid gap-5">
               {content.items.map(([title, text]) => (
-                <div className="rounded-[1.5rem] bg-[#F8FAFC] p-5" key={title}>
+                <div className="rounded-lg bg-[#f6f7fb] p-5 dark:bg-white/[0.06]" key={title}>
                   <div className="flex items-center gap-3">
-                    <ShieldCheck className="size-5 text-[#10B981]" />
-                    <h2 className="text-xl font-semibold tracking-tight text-slate-950">{title}</h2>
+                    <ShieldCheck className="size-5 text-[#4255ff]" />
+                    <h2 className="text-xl font-bold tracking-normal text-[#282e3e] dark:text-white">{title}</h2>
                   </div>
-                  <p className="mt-3 text-base leading-7 text-slate-600">{text}</p>
+                  <p className="mt-3 text-base leading-7 text-[#586380] dark:text-[#c7cce0]">{text}</p>
                 </div>
               ))}
             </div>
           </QuietPanel>
-          <Link
-            className="inline-flex w-fit items-center gap-2 rounded-full bg-[#10B981] px-5 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-[#047857]"
-            href="/upload"
-          >
+          <Link className="trainova-primary trainova-pill inline-flex w-fit items-center gap-2 px-5 py-3 text-sm font-bold" href="/upload">
             Загрузить тест
             <ArrowRight className="size-4" />
           </Link>
@@ -90,9 +87,9 @@ export function BlogPage() {
           <PageTitle description="Будущие материалы о подготовке тестов, импорте и учебных сценариях." title="Блог" />
           <div className="grid gap-4 md:grid-cols-3">
             {posts.map(([title, text]) => (
-              <QuietPanel className="p-5" key={title}>
-                <h2 className="text-xl font-semibold tracking-tight text-slate-950">{title}</h2>
-                <p className="mt-3 text-sm leading-6 text-slate-600">{text}</p>
+              <QuietPanel className="trainova-lift p-5" key={title}>
+                <h2 className="text-xl font-bold tracking-normal text-[#282e3e] dark:text-white">{title}</h2>
+                <p className="mt-3 text-sm leading-6 text-[#586380] dark:text-[#c7cce0]">{text}</p>
               </QuietPanel>
             ))}
           </div>

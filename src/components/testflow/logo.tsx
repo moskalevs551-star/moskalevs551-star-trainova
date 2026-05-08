@@ -5,14 +5,24 @@ import { cn } from "@/lib/utils";
 
 export function TrainovaLogo({ className }: { className?: string }) {
   return (
-    <Image
-      alt="Trainova"
-      className={cn("h-12 w-44 object-contain", className)}
-      height={47}
-      priority
-      src="/images/trainova-logo.png"
-      width={172}
-    />
+    <span className={cn("relative inline-block h-12 w-44", className)}>
+      <Image
+        alt="Trainova"
+        className="h-full w-full object-contain dark:hidden"
+        height={47}
+        priority
+        src="/images/trainova-logo.png"
+        width={172}
+      />
+      <Image
+        alt="Trainova"
+        className="hidden h-full w-full object-contain dark:block"
+        height={223}
+        priority
+        src="/images/trainova-logo-dark.png"
+        width={820}
+      />
+    </span>
   );
 }
 

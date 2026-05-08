@@ -96,33 +96,35 @@ export function AuthPage({ mode = "login" }: { mode?: "login" | "signup" }) {
 
   return (
     <AppShell>
-      <PageFrame className="py-16 lg:py-24">
+      <PageFrame className="py-14 lg:py-20">
         <motion.div
           animate={{ opacity: 1, y: 0 }}
-          className="mx-auto grid max-w-5xl items-center gap-12 lg:grid-cols-[1fr_440px]"
+          className="mx-auto grid max-w-5xl items-center gap-12 lg:grid-cols-[1fr_430px]"
           initial={{ opacity: 0, y: 16 }}
-          transition={{ duration: 0.35 }}
+          transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
         >
           <div className="hidden flex-col gap-8 lg:flex">
             <TrainovaLogo className="h-16" />
             <div>
-              <h1 className="max-w-xl text-balance text-6xl font-semibold leading-[1] tracking-tight text-slate-950">
-                Войдите, чтобы сохранить тренажёры и прогресс
+              <h1 className="max-w-xl text-balance text-[44px] font-bold leading-[1.12] tracking-normal text-[#282e3e] dark:text-white">
+                Войдите, чтобы сохранять тренажёры и прогресс
               </h1>
-              <p className="mt-6 max-w-lg text-xl leading-9 text-slate-600">
+              <p className="mt-6 max-w-lg text-xl leading-[1.4] text-[#586380] dark:text-[#c7cce0]">
                 Trainova продолжит с того же вопроса, сохранит попытки и соберёт ошибки для следующей короткой сессии.
               </p>
             </div>
           </div>
 
-          <QuietPanel className="overflow-hidden p-7 sm:p-8">
+          <QuietPanel className="overflow-hidden p-6 sm:p-8">
             <div className="mb-7 flex flex-col gap-5">
               <TrainovaLogo className="h-12 lg:hidden" />
               <div>
-                <h2 className="text-3xl font-semibold tracking-tight text-slate-950">
+                <h2 className="text-[32px] font-bold leading-[1.25] tracking-normal text-[#282e3e] dark:text-white">
                   {mode === "signup" ? "Создать аккаунт" : "Войти"}
                 </h2>
-                <p className="mt-2 text-sm text-slate-500">Войдите через Google или используйте email.</p>
+                <p className="mt-2 text-sm leading-[1.43] text-[#586380] dark:text-[#c7cce0]">
+                  Войдите через Google или используйте email.
+                </p>
               </div>
             </div>
 
@@ -132,17 +134,17 @@ export function AuthPage({ mode = "login" }: { mode?: "login" | "signup" }) {
               </AuthButton>
             </div>
 
-            <div className="my-7 flex items-center gap-4 text-xs font-medium uppercase tracking-[0.18em] text-slate-400">
-              <span className="h-px flex-1 bg-slate-100" />
+            <div className="my-7 flex items-center gap-4 text-xs font-bold uppercase tracking-[0.12em] text-[#939bb4]">
+              <span className="h-px flex-1 bg-[#d9dde8] dark:bg-white/[0.12]" />
               Email
-              <span className="h-px flex-1 bg-slate-100" />
+              <span className="h-px flex-1 bg-[#d9dde8] dark:bg-white/[0.12]" />
             </div>
 
             <form className="flex flex-col gap-4" onSubmit={continueWithEmail}>
               <label className="flex flex-col gap-2">
-                <span className="text-sm font-medium text-slate-600">Email</span>
+                <span className="text-sm font-bold text-[#586380] dark:text-[#c7cce0]">Email</span>
                 <input
-                  className="h-12 rounded-2xl border border-slate-200 bg-white px-4 text-base outline-none transition focus:border-indigo-300"
+                  className="trainova-input h-12 px-4 text-base outline-none transition"
                   onChange={(event) => setEmail(event.target.value)}
                   placeholder="you@example.com"
                   required
@@ -151,43 +153,41 @@ export function AuthPage({ mode = "login" }: { mode?: "login" | "signup" }) {
                 />
               </label>
               <label className="flex flex-col gap-2">
-                <span className="text-sm font-medium text-slate-600">Пароль, если хотите войти без magic link</span>
+                <span className="text-sm font-bold text-[#586380] dark:text-[#c7cce0]">
+                  Пароль, если хотите войти без magic link
+                </span>
                 <input
-                  className="h-12 rounded-2xl border border-slate-200 bg-white px-4 text-base outline-none transition focus:border-indigo-300"
+                  className="trainova-input h-12 px-4 text-base outline-none transition"
                   onChange={(event) => setPassword(event.target.value)}
                   placeholder="Можно оставить пустым"
                   type="password"
                   value={password}
                 />
               </label>
-              <Button
-                className="h-12 rounded-full bg-[#10B981] text-base font-semibold text-white hover:bg-[#047857]"
-                disabled={pending || !configured}
-                type="submit"
-              >
+              <Button className="trainova-primary trainova-pill h-12 text-base font-bold" disabled={pending || !configured} type="submit">
                 {password ? (mode === "signup" ? "Создать аккаунт" : "Войти с паролем") : "Continue with Email"}
               </Button>
             </form>
 
             {!configured ? (
-              <p className="mt-4 rounded-2xl bg-amber-50 p-3 text-sm leading-6 text-amber-800">
+              <p className="mt-4 rounded-lg bg-[#ffc38c]/35 p-3 text-sm leading-6 text-[#282e3e]">
                 Auth UI готов. Для реального входа добавьте Supabase переменные окружения.
               </p>
             ) : null}
-            {message ? <p className="mt-4 text-sm leading-6 text-slate-500">{message}</p> : null}
+            {message ? <p className="mt-4 text-sm leading-6 text-[#586380] dark:text-[#c7cce0]">{message}</p> : null}
 
-            <p className="mt-7 text-center text-sm text-slate-500">
+            <p className="mt-7 text-center text-sm text-[#586380] dark:text-[#c7cce0]">
               {mode === "signup" ? (
                 <>
                   Уже есть аккаунт?{" "}
-                  <Link className="font-semibold text-slate-950" href={`/login?next=${encodeURIComponent(next)}`}>
+                  <Link className="font-bold text-[#4255ff]" href={`/login?next=${encodeURIComponent(next)}`}>
                     Войти
                   </Link>
                 </>
               ) : (
                 <>
                   Нет аккаунта?{" "}
-                  <Link className="font-semibold text-slate-950" href={`/signup?next=${encodeURIComponent(next)}`}>
+                  <Link className="font-bold text-[#4255ff]" href={`/signup?next=${encodeURIComponent(next)}`}>
                     Создать
                   </Link>
                 </>
@@ -243,7 +243,7 @@ function AuthButton({
 }) {
   return (
     <button
-      className="flex h-12 w-full items-center justify-center gap-3 rounded-full border border-slate-200 bg-white px-4 text-base font-semibold text-slate-900 transition hover:-translate-y-0.5 hover:border-slate-300 hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-55"
+      className="trainova-lift flex h-12 w-full items-center justify-center gap-3 rounded-full border border-[#d9dde8] bg-white px-4 text-base font-bold text-[#282e3e] transition hover:border-[#4255ff]/40 hover:bg-[#eef0ff] disabled:cursor-not-allowed disabled:opacity-55 dark:border-white/[0.12] dark:bg-white/[0.06] dark:text-white dark:hover:bg-white/[0.10]"
       disabled={disabled}
       onClick={onClick}
       type="button"

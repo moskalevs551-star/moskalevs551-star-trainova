@@ -97,6 +97,7 @@ export type TestSettings = {
     type: TestMode;
     showHints: boolean;
     allowSkip: boolean;
+    allowBack: boolean;
   };
   timer: {
     enabled: boolean;

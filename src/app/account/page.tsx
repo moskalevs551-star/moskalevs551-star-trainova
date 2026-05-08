@@ -87,7 +87,7 @@ export default async function Page() {
           <QuietPanel className="p-7 sm:p-8">
             <div className="grid gap-8 md:grid-cols-[220px_1fr] md:items-start">
               <div className="flex flex-col items-start gap-4">
-                <div className="flex size-24 items-center justify-center overflow-hidden rounded-[2rem] bg-[#EDE9FE] text-3xl font-semibold text-[#5B4AD9]">
+                <div className="flex size-24 items-center justify-center overflow-hidden rounded-lg bg-[#eeaaff]/45 text-3xl font-bold text-[#423ed8]">
                   {avatarUrl ? (
                     // eslint-disable-next-line @next/next/no-img-element
                     <img alt="" className="size-full object-cover" src={avatarUrl} />
@@ -96,16 +96,16 @@ export default async function Page() {
                   )}
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-slate-500">Email</p>
-                  <p className="mt-1 break-all text-lg font-semibold text-slate-950">{user.email}</p>
+                  <p className="text-sm font-bold text-[#586380] dark:text-[#c7cce0]">Email</p>
+                  <p className="mt-1 break-all text-lg font-bold text-[#282e3e] dark:text-white">{user.email}</p>
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-slate-500">Провайдер</p>
-                  <p className="mt-1 text-base font-medium capitalize text-slate-700">{provider}</p>
+                  <p className="text-sm font-bold text-[#586380] dark:text-[#c7cce0]">Провайдер</p>
+                  <p className="mt-1 text-base font-bold capitalize text-[#282e3e] dark:text-white">{provider}</p>
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-slate-500">Дата регистрации</p>
-                  <p className="mt-1 text-base font-medium text-slate-700">
+                  <p className="text-sm font-bold text-[#586380] dark:text-[#c7cce0]">Дата регистрации</p>
+                  <p className="mt-1 text-base font-bold text-[#282e3e] dark:text-white">
                     {formatDate(profile?.created_at ?? user.created_at)}
                   </p>
                 </div>
@@ -121,10 +121,10 @@ export default async function Page() {
                   <AccountStat label="Ошибок в повторении" value={statNumber(wrongQuestions?.length)} tone="coral" />
                 </div>
                 <div className="flex flex-col gap-3 sm:flex-row">
-                  <Link className="inline-flex h-11 items-center justify-center rounded-full bg-emerald-500 px-5 font-semibold text-white hover:bg-emerald-600" href="/dashboard">
+                  <Link className="trainova-primary trainova-pill inline-flex h-11 items-center justify-center px-5 font-bold" href="/dashboard">
                     Мой кабинет
                   </Link>
-                  <Link className="inline-flex h-11 items-center justify-center rounded-full border border-slate-200 px-5 font-semibold text-slate-900 hover:bg-slate-50" href="/logout">
+                  <Link className="trainova-secondary trainova-pill inline-flex h-11 items-center justify-center px-5 font-bold" href="/logout">
                     Выйти
                   </Link>
                 </div>
@@ -140,18 +140,18 @@ export default async function Page() {
 function AccountStat({
   label,
   value,
-  tone = "green",
+  tone = "violet",
 }: {
   label: string;
   value: string;
-  tone?: "green" | "coral";
+  tone?: "violet" | "coral";
 }) {
   return (
-    <div className="rounded-[1.4rem] bg-slate-50 p-5">
-      <p className={tone === "coral" ? "text-sm font-medium text-[#E34D3D]" : "text-sm font-medium text-emerald-700"}>
+    <div className="rounded-lg bg-[#f6f7fb] p-5 dark:bg-white/[0.06]">
+      <p className={tone === "coral" ? "text-sm font-bold text-[#d85d4e] dark:text-[#ff9a8f]" : "text-sm font-bold text-[#4255ff] dark:text-[#aeb7ff]"}>
         {label}
       </p>
-      <p className="mt-3 text-3xl font-semibold tracking-tight text-slate-950">{value}</p>
+      <p className="mt-3 text-3xl font-bold tracking-normal text-[#282e3e] dark:text-white">{value}</p>
     </div>
   );
 }

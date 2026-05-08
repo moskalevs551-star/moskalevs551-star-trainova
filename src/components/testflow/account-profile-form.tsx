@@ -32,31 +32,22 @@ export function AccountProfileForm({ initialName }: { initialName?: string | nul
 
   return (
     <div className="flex flex-col gap-3">
-      <label className="text-sm font-medium text-slate-500" htmlFor="account-name">
+      <label className="text-sm font-bold text-[#586380] dark:text-[#c7cce0]" htmlFor="account-name">
         Имя
       </label>
       <div className="flex flex-col gap-3 sm:flex-row">
         <input
-          className="h-12 flex-1 rounded-2xl border border-slate-200 bg-white px-4 text-base outline-none transition focus:border-emerald-300 focus:ring-4 focus:ring-emerald-100"
+          className="trainova-input h-12 flex-1 px-4 text-base outline-none transition"
           id="account-name"
           onChange={(event) => setFullName(event.target.value)}
           placeholder="Как вас называть"
           value={fullName}
         />
-        <Button
-          className="h-12 rounded-full bg-emerald-500 px-6 font-semibold text-white hover:bg-emerald-600"
-          disabled={pending}
-          onClick={save}
-          type="button"
-        >
+        <Button className="trainova-primary trainova-pill h-12 px-6 font-bold" disabled={pending} onClick={save} type="button">
           {pending ? "Сохраняем..." : "Сохранить"}
         </Button>
       </div>
-      {message ? (
-        <p className={message === "Сохранено" ? "text-sm text-emerald-700" : "text-sm text-red-500"}>
-          {message}
-        </p>
-      ) : null}
+      {message ? <p className={message === "Сохранено" ? "text-sm text-[#4255ff]" : "text-sm text-red-500"}>{message}</p> : null}
     </div>
   );
 }
